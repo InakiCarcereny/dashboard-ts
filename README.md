@@ -1,6 +1,6 @@
 ## Installation
 
-you need to have a MongoDB database running on your local machine.
+`you need to have a MongoDB database running on your local machine.`
 
 
 1- Clone the repo: `https://github.com/InakiCarcereny/dashboard-ts.git`
