@@ -2,7 +2,7 @@ export function Hamburguer() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      className="icon icon-tabler icon-tabler-menu-2 text-white"
+      className="icon icon-tabler icon-tabler-menu-2 text-black dark:text-white"
       width="30"
       height="30"
       viewBox="0 0 24 24"
