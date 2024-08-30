@@ -14,6 +14,7 @@ import Cookies from "js-cookie";
 type UserContextType = {
   signUp: (value: RegisterRequest) => void;
   signIn: (value: LoginRequest) => void;
+  logOut: () => void;
   user: User | null;
   error: string[];
   isAuthenticated: boolean;
@@ -52,7 +53,6 @@ export function UserProvider({ children }: { children: React.ReactNode }) {
       setUser(res.data);
       setIsAuthenticated(true);
     } catch (err: any) {
-      console.log(err.response);
       setError(err.response.data);
     }
   };
@@ -63,9 +63,14 @@ export function UserProvider({ children }: { children: React.ReactNode }) {
       setUser(res.data);
       setIsAuthenticated(true);
     } catch (err: any) {
-      console.log(err.response);
       setError(err.response.data);
     }
+  };
+
+  const logOut = () => {
+    Cookies.remove("token");
+    setIsAuthenticated(false);
+    setUser(null);
   };
 
   useEffect(() => {
@@ -73,7 +78,6 @@ export function UserProvider({ children }: { children: React.ReactNode }) {
       setIsLoading(true);
 
       const cookies = Cookies.get();
-      console.log(cookies);
 
       if (!cookies.token) {
         setIsAuthenticated(false);
@@ -83,7 +87,6 @@ export function UserProvider({ children }: { children: React.ReactNode }) {
 
       try {
         const res = await verifyRequest(cookies.token);
-        console.log(res);
 
         if (!res.data) {
           setIsAuthenticated(false);
@@ -110,6 +113,7 @@ export function UserProvider({ children }: { children: React.ReactNode }) {
         error,
         isAuthenticated,
         isLoading,
+        logOut,
       }}
     >
       {children}
