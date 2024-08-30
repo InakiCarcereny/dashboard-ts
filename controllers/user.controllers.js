@@ -10,7 +10,7 @@ export const register = async (req, res) => {
     const userFind = await User.findOne({ username });
 
     if (userFind) {
-      return res.status(400).json({ message: "Username already exists" });
+      return res.status(400).json(["Username already exists"]);
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -26,7 +26,7 @@ export const register = async (req, res) => {
 
     res.status(201).json(savedUser);
   } catch (err) {
-    res.status(500).json({ message: "Error registering user" });
+    res.status(500).json(["Error registering user"]);
   }
 };
 
@@ -37,13 +37,13 @@ export const login = async (req, res) => {
     const userFind = await User.findOne({ email });
 
     if (!userFind) {
-      return res.status(400).json({ message: "User not found" });
+      return res.status(400).json(["User not found"]);
     }
 
     const isPasswordCorrect = await bcrypt.compare(password, userFind.password);
 
     if (!isPasswordCorrect) {
-      return res.status(400).json({ message: "Incorrect password" });
+      return res.status(400).json(["Incorrect password"]);
     }
 
     const token = jwt.sign(
@@ -51,7 +51,6 @@ export const login = async (req, res) => {
         id: userFind._id,
         username: userFind.username,
         email: userFind.email,
-        lastname: userFind.lastname,
       },
       JWT_SECRET,
       {
@@ -59,14 +58,11 @@ export const login = async (req, res) => {
       }
     );
 
-    res.cookie("token", token, {
-      httpOnly: true,
-      secure: true,
-    });
+    res.cookie("token", token);
 
-    res.status(200).json({ message: "Login successful" });
+    res.status(200).json(["Login successful"]);
   } catch (err) {
-    res.status(500).json({ message: "Error logging in" });
+    res.status(500).json(["Error logging in"]);
   }
 };
 
