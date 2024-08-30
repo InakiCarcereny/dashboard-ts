@@ -2,7 +2,7 @@ export function Moon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      className="icon icon-tabler icon-tabler-moon-filled text-blue-600"
+      className="icon icon-tabler icon-tabler-moon-filled text-white"
       width="26"
       height="26"
       viewBox="0 0 24 24"

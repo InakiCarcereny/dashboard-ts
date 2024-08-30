@@ -2,9 +2,9 @@ export function Home() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      className="icon icon-tabler icon-tabler-home text-blue-600"
-      width="30"
-      height="30"
+      className="icon icon-tabler icon-tabler-home"
+      width="26"
+      height="26"
       viewBox="0 0 24 24"
       stroke-width="1.5"
       stroke="currentColor"
