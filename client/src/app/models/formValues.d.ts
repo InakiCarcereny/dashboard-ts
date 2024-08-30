@@ -3,4 +3,7 @@ export type FormValues = {
   username: string;
   lastname: string;
   password: string;
+  id: string;
+  createdAt: string;
+  updatedAt: string;
 }

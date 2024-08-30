@@ -3,4 +3,7 @@ export interface RegisterRequest {
   password: string;
   email: string;
   lastname: string;
+  id: string;
+  createdAt: string;
+  updatedAt: string;
 }
