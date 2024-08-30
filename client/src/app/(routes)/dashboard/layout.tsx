@@ -32,16 +32,14 @@ export default function DashboardLayout({
   }
 
   return (
-    <html lang="en">
-      <body className={`${poppins.className}`}>
-        <Header />
+    <div className={`${poppins.className} bg-zinc-900`}>
+      <Header />
 
-        <section className="flex gap-20 w-screen mt-6 px-4">
-          <Aside />
+      <section className="flex gap-20 w-screen mt-6 px-4">
+        <Aside />
 
-          <main className="bg-zinc-200 w-full">{children}</main>
-        </section>
-      </body>
-    </html>
+        <main className="bg-zinc-800 w-full rounded-xl">{children}</main>
+      </section>
+    </div>
   );
 }

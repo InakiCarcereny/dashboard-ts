@@ -6,11 +6,11 @@ import { User } from "@/app/icons/user";
 
 export function Header() {
   return (
-    <header className="flex items-center h-[50px] w-full px-4 py-2">
+    <header className="flex items-center h-[70px] w-full px-4 py-2 bg-zinc-900">
       <nav className="flex items-center justify-between w-full">
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-6">
           <Hamburguer />
-          <h3 className="flex items-center font-semibold">
+          <h3 className="flex items-center font-semibold text-white gap-2 text-sm">
             <Dashboard />
             Dashboard
           </h3>

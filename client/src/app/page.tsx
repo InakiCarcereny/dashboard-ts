@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight } from "./icons/arrowRight";
 import { Dashboard } from "./icons/dashboard";
+import "../app/styles/landing.css";
 
 const buttons = [
   {
@@ -17,10 +18,12 @@ const buttons = [
 
 export default function Home() {
   return (
-    <section className="flex flex-col items-center justify-center min-h-screen">
+    <section className="image flex flex-col items-center justify-center min-h-screen">
       <div className="flex items-center justify-center gap-4">
         <Dashboard />
-        <h1 className="font-semibold text-4xl">Welcome to the dashboard</h1>
+        <h1 className="font-semibold text-4xl text-white">
+          Welcome to the dashboard
+        </h1>
       </div>
 
       <div className="flex items-center justify-center gap-8 mt-16">
