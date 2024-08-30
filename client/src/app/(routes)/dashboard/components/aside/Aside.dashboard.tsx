@@ -6,6 +6,7 @@ import { Phone } from "@/app/icons/phone";
 import { Paper } from "@/app/icons/paper";
 import { useUser } from "@/app/context/user";
 import { ArrowLeft } from "@/app/icons/arrowLeft";
+import { Plus } from "@/app/icons/plus";
 
 const links = [
   {
@@ -49,10 +50,19 @@ export function Aside() {
               />
             );
           })}
+          <div className="border border-zinc-300 dark:border-zinc-700/40 w-full"></div>
         </ul>
+
+        <div className="w-full h-[150px] dark:bg-zinc-700/40 bg-zinc-300 rounded-xl mb-[450px] flex items-center justify-center flex-col gap-1 font-semibold dark:text-white text-black">
+          <span className="bg-blue-600 px-2 py-2 rounded-full">
+            <Plus />
+          </span>
+          Add new task
+        </div>
+
         <button
           onClick={logOut}
-          className="flex items-center mb-2 gap-4 px-2 py-2 rounded-xl duration-200 hover:bg-zinc-700/40 text-white font-semibold"
+          className="flex items-center mb-2 gap-4 px-2 py-2 rounded-xl duration-200 dark:hover:bg-zinc-700/40 hover:bg-zinc-300 text-black dark:text-white font-semibold"
         >
           <ArrowLeft />
           Log out
