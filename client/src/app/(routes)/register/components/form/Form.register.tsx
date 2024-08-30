@@ -1,16 +1,25 @@
 import { FormValues } from "@/app/models/formValues";
 import { useForm } from "react-hook-form";
-import { registerRequest } from "@/app/interceptors/auth";
+import { useUser } from "@/app/context/user";
+import { useEffect } from "react";
+import { redirect } from "next/navigation";
 
 export function Form() {
   const { register, handleSubmit, formState } = useForm<FormValues>();
 
   const { errors } = formState;
 
+  const { signUp, error, isAuthenticated } = useUser();
+
   const onSubmit = handleSubmit(async (data) => {
-    registerRequest(data);
-    console.log(data);
+    signUp(data);
   });
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      redirect("/login");
+    }
+  }, [isAuthenticated]);
 
   return (
     <form className="flex flex-col gap-4 mt-8 w-9/12" onSubmit={onSubmit}>
@@ -36,7 +45,9 @@ export function Form() {
 
         {errors.email && (
           <span>
-            <span className="text-red-500 text-sm">{errors.email.message}</span>
+            <span className="text-red-500 text-sm font-semibold">
+              {errors.email.message}
+            </span>
           </span>
         )}
       </div>
@@ -63,7 +74,7 @@ export function Form() {
 
         {errors.username && (
           <span>
-            <span className="text-red-500 text-sm">
+            <span className="text-red-500 text-sm font-semibold">
               {errors.username.message}
             </span>
           </span>
@@ -92,7 +103,7 @@ export function Form() {
 
         {errors.lastname && (
           <span>
-            <span className="text-red-500 text-sm">
+            <span className="text-red-500 text-sm font-semibold">
               {errors.lastname.message}
             </span>
           </span>
@@ -121,7 +132,7 @@ export function Form() {
 
         {errors.password && (
           <span>
-            <span className="text-red-500 text-sm">
+            <span className="text-red-500 text-sm font-semibold">
               {errors.password.message}
             </span>
           </span>
@@ -134,6 +145,14 @@ export function Form() {
       >
         Register
       </button>
+
+      {error.map((err, index) => {
+        return (
+          <span key={index} className="text-red-500 text-sm font-semibold">
+            {err}
+          </span>
+        );
+      })}
     </form>
   );
 }

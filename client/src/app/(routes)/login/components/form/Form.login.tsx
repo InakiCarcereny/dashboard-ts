@@ -1,3 +1,4 @@
+import { useUser } from "@/app/context/user";
 import { FormValues } from "@/app/models/formValues";
 import { useForm } from "react-hook-form";
 
@@ -6,8 +7,10 @@ export function Form() {
 
   const { errors } = formState;
 
+  const { signIn, error, isAuthenticated } = useUser();
+
   const onSubmit = handleSubmit(async (data) => {
-    console.log(data);
+    signIn(data);
   });
 
   return (
@@ -74,6 +77,14 @@ export function Form() {
       >
         Log In
       </button>
+
+      {error.map((err, index) => {
+        return (
+          <span key={index} className="text-red-500 text-sm font-semibold">
+            {err}
+          </span>
+        );
+      })}
     </form>
   );
 }
