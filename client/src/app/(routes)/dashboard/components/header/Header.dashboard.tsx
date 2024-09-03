@@ -19,7 +19,7 @@ export function Header() {
         </div>
 
         <div className="font-semibold text-sm">
-          Hello {user?.username} Good day 👋
+          Welcome {user?.username}, Have a Good Day 👋
         </div>
 
         <div className="flex items-center gap-6">

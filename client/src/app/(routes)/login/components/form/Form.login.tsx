@@ -7,7 +7,7 @@ export function Form() {
 
   const { errors } = formState;
 
-  const { signIn, error, isAuthenticated } = useUser();
+  const { signIn, error } = useUser();
 
   const onSubmit = handleSubmit(async (data) => {
     signIn(data);
@@ -37,7 +37,9 @@ export function Form() {
 
         {errors.email && (
           <span>
-            <span className="text-red-500 text-sm">{errors.email.message}</span>
+            <span className="text-red-500 text-sm font-semibold">
+              {errors.email.message}
+            </span>
           </span>
         )}
       </div>
@@ -64,7 +66,7 @@ export function Form() {
 
         {errors.password && (
           <span>
-            <span className="text-red-500 text-sm">
+            <span className="text-red-500 text-sm font-semibold">
               {errors.password.message}
             </span>
           </span>
