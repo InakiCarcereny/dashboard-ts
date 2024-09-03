@@ -4,4 +4,5 @@ export interface LinkProps {
   href: string;
   pathname: string;
   key: number;
+  isExpanded: boolean;
 }
