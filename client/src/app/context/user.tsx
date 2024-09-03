@@ -10,16 +10,7 @@ import {
   verifyRequest,
 } from "../interceptors/auth";
 import Cookies from "js-cookie";
-
-type UserContextType = {
-  signUp: (value: RegisterRequest) => void;
-  signIn: (value: LoginRequest) => void;
-  logOut: () => void;
-  user: User | null;
-  error: string[];
-  isAuthenticated: boolean;
-  isLoading: boolean;
-};
+import { type UserContextType } from "../models/userContext";
 
 export const UserContext = createContext<UserContextType | undefined>(
   undefined
