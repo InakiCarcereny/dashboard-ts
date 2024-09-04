@@ -5,15 +5,17 @@ import {
   updateTask,
   deleteTask,
 } from "../controllers/task.controllers.js";
+import { isValidate } from "../middlewares/user.middleware.js";
+import { createTaskSchema, updateTaskSchema } from "../schemas/task.schema.js";
 
 const routes = Router();
 
-routes.get("/get", getTasks);
+routes.get("/", getTasks);
 
-routes.post("/create", createTask);
+routes.post("/", isValidate(createTaskSchema), createTask);
 
-routes.put("/update:id", updateTask);
+routes.put("/:id", isValidate(updateTaskSchema), updateTask);
 
-routes.delete("/delete:id", deleteTask);
+routes.delete("/:id", deleteTask);
 
 export default routes;
