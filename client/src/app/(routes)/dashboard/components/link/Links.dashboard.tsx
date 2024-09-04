@@ -1,7 +1,14 @@
 import Link from "next/link";
 import { type LinkProps } from "@/app/models/linkProps";
 
-export function Links({ label, icon, href, pathname, key }: LinkProps) {
+export function Links({
+  label,
+  icon,
+  href,
+  pathname,
+  key,
+  isExpanded,
+}: LinkProps) {
   return (
     <li key={key}>
       <Link
@@ -13,7 +20,7 @@ export function Links({ label, icon, href, pathname, key }: LinkProps) {
         }`}
       >
         <span>{icon}</span>
-        <p className="font-semibold">{label}</p>
+        <p className={`font-semibold ${isExpanded ? "hidden" : ""}`}>{label}</p>
       </Link>
     </li>
   );
