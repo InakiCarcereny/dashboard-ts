@@ -4,6 +4,7 @@ import "./globals.css";
 
 import { UserProvider } from "@/app/context/user";
 import { ThemeProvider } from "../components/theme-provider";
+import { TaskProvider } from "@/app/context/task";
 
 const poppins = Poppins({ subsets: ["latin"], weight: ["400"] });
 
@@ -26,7 +27,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <UserProvider>{children}</UserProvider>
+          <UserProvider>
+            <TaskProvider>{children}</TaskProvider>
+          </UserProvider>
         </ThemeProvider>
       </body>
     </html>
