@@ -28,10 +28,8 @@ export function Notifications() {
         <DropdownMenuItem>
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-2">
-              <Dot />
-              <span className="hover:text-blue-600">
-                Welcome to our dashboard, thanks for using us!
-              </span>
+              <Dot className="text-blue-600" />
+              <span>Welcome to our dashboard, thanks for using us!</span>
             </div>
             <span className="text-xs text-end text-zinc-600">Right now</span>
           </div>

@@ -13,7 +13,7 @@ export function Buttons({ isExpanded, toggleExpand, logOut }: ButtonsProps) {
   return (
     <>
       <div
-        className={`w-full h-[150px] rounded-xl mb-[300px] flex items-center justify-center flex-col gap-1 ${
+        className={`w-full h-[150px] rounded-xl mb-[320px] flex items-center justify-center flex-col gap-1 ${
           isExpanded ? "" : "dark:bg-zinc-700/40 bg-zinc-300"
         }`}
       >

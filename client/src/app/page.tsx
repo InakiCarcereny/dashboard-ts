@@ -18,25 +18,34 @@ const buttons = [
 
 export default function Home() {
   return (
-    <section className="image flex flex-col items-center justify-center min-h-screen">
-      <div className="flex items-center justify-center gap-4">
-        <Dashboard />
-        <h1 className="font-semibold text-4xl text-white">
-          Welcome to the dashboard
-        </h1>
+    <section className="flex items-center min-h-screen justify-center gap-8">
+      <div className="flex flex-col">
+        <div className="flex items-center justify-center gap-4">
+          <Dashboard />
+          <h1 className="font-semibold text-4xl text-black">
+            Welcome to the dashboard
+          </h1>
+        </div>
+
+        <div className="flex items-center justify-center gap-8 mt-16">
+          {buttons.map((button, index) => {
+            return (
+              <Link key={index} href={button.href}>
+                <button className="flex items-center justify-center gap-4 bg-blue-600 px-4 py-2 hover:rounded-xl duration-200 text-white font-semibold">
+                  {button.label}
+                  {button.icon}
+                </button>
+              </Link>
+            );
+          })}
+        </div>
       </div>
 
-      <div className="flex items-center justify-center gap-8 mt-16">
-        {buttons.map((button, index) => {
-          return (
-            <Link key={index} href={button.href}>
-              <button className="flex items-center justify-center gap-4 bg-blue-600 px-4 py-2 hover:rounded-xl duration-200 text-white font-semibold">
-                {button.label}
-                {button.icon}
-              </button>
-            </Link>
-          );
-        })}
+      <div className="w-[500px] h-[500px]">
+        <img
+          src="https://i.pinimg.com/564x/55/92/d3/5592d36c450bcf881cea45c15c9f8ceb.jpg"
+          className="w-full h-full"
+        />
       </div>
     </section>
   );

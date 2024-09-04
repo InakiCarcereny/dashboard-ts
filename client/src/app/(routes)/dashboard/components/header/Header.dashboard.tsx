@@ -27,8 +27,8 @@ export function Header() {
           />
         </div>
 
-        <div className="flex items-center gap-6">
-          <span className="bg-blue-600 rounded-full px-[0.5px] py-[0.5px]">
+        <div className="flex items-center gap-4">
+          <span className="bg-blue-600 rounded-full px-[1.5px] py-[1.5px]">
             <ModeToggle />
           </span>
           <span className="bg-blue-600  rounded-full px-[2px] py-[2px]">

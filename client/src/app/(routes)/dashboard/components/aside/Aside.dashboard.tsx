@@ -58,7 +58,7 @@ export function Aside() {
   return (
     <aside
       className={`flex flex-col h-[905px] ${
-        isExpanded ? "w-[42px] duration-150" : "w-[300px] duration-150"
+        isExpanded ? "w-[42px] duration-150" : "w-[200px] duration-150"
       }`}
     >
       <nav className="flex flex-col h-full justify-between">

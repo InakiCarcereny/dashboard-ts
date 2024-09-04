@@ -38,7 +38,7 @@ export default function DashboardLayout({
       <section className="flex gap-20 w-screen mt-6 px-4">
         <Aside />
 
-        <main className="w-full rounded-xl">{children}</main>
+        <main className="w-[800px] rounded-xl">{children}</main>
       </section>
     </div>
   );
