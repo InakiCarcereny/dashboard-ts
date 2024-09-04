@@ -16,7 +16,7 @@ export function ModeToggle() {
   const { setTheme } = useTheme();
 
   return (
-    <DropdownMenu className="bg-white">
+    <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button size="icon">
           <Sun className="h-[1.8rem] w-[1.8rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
@@ -29,13 +29,13 @@ export function ModeToggle() {
         className="dark:bg-zinc-900 dark:text-white rounded-xl border-none text-black bg-zinc-300 font-semibold"
       >
         <DropdownMenuItem onClick={() => setTheme("light")}>
-          Light
+          <span className="hover:text-blue-600 cursor-pointer">Light</span>
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme("dark")}>
-          Dark
+          <span className="hover:text-blue-600 cursor-pointer">Dark</span>
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme("system")}>
-          System
+          <span className="hover:text-blue-600 cursor-pointer">System</span>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
