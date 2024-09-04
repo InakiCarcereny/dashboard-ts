@@ -7,9 +7,21 @@ interface ButtonsProps {
   isExpanded: boolean;
   toggleExpand: () => void;
   logOut: () => void;
+  open: boolean;
+  setOpen: (value: boolean) => void;
 }
 
-export function Buttons({ isExpanded, toggleExpand, logOut }: ButtonsProps) {
+export function Buttons({
+  isExpanded,
+  toggleExpand,
+  logOut,
+  open,
+  setOpen,
+}: ButtonsProps) {
+  const handleOpen = () => {
+    setOpen(!open);
+  };
+
   return (
     <>
       <div
@@ -17,9 +29,12 @@ export function Buttons({ isExpanded, toggleExpand, logOut }: ButtonsProps) {
           isExpanded ? "" : "dark:bg-zinc-700/40 bg-zinc-300"
         }`}
       >
-        <span className="bg-blue-600 px-2 py-2 rounded-full hover:scale-105 duration-200 transition-all cursor-pointer">
+        <button
+          onClick={handleOpen}
+          className="bg-blue-600 px-2 py-2 rounded-full hover:scale-105 duration-200 transition-all cursor-pointer"
+        >
           <Plus />
-        </span>
+        </button>
         <p
           className={`font-semibold dark:text-white text-black ${
             isExpanded ? "hidden" : ""

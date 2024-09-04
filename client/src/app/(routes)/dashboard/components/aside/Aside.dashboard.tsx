@@ -7,10 +7,9 @@ import { Paper } from "@/app/icons/paper";
 import { useUser } from "@/app/context/user";
 import { useState } from "react";
 import { Buttons } from "../buttons/Buttons.dashboard";
-import { List } from "@/app/icons/list";
-import { Acces } from "@/app/icons/acces";
 import { Folder } from "@/app/icons/folder";
 import { Balloon } from "@/app/icons/balloon";
+import { FormModal } from "../formModal/FormModal.dashboard";
 
 const links = [
   {
@@ -55,10 +54,12 @@ export function Aside() {
     setIsExpanded(!isExpanded);
   };
 
+  const [open, setOpen] = useState(false);
+
   return (
     <aside
-      className={`flex flex-col h-[905px] ${
-        isExpanded ? "w-[42px] duration-150" : "w-[200px] duration-150"
+      className={`flex flex-col h-[905px] relative ${
+        isExpanded ? "w-[42px] duration-150" : "w-[250px] duration-150"
       }`}
     >
       <nav className="flex flex-col h-full justify-between">
@@ -82,8 +83,12 @@ export function Aside() {
           isExpanded={isExpanded}
           toggleExpand={toggleExpand}
           logOut={logOut}
+          open={open}
+          setOpen={setOpen}
         />
       </nav>
+
+      {open && <FormModal setOpen={setOpen} />}
     </aside>
   );
 }
