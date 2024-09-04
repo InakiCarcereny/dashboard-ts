@@ -1,7 +1,11 @@
 "use client";
 
 import { createContext, useContext, useEffect, useState } from "react";
-import { createTaskRequest, getTasksRequest } from "../interceptors/task";
+import {
+  createTaskRequest,
+  deleteTaskRequest,
+  getTasksRequest,
+} from "../interceptors/task";
 import { type CreateTaskRequest } from "../interceptors/task";
 
 type TaskContextType = {
@@ -9,15 +13,17 @@ type TaskContextType = {
   error: string[];
   createTask: (data: CreateTaskRequest) => void;
   updateTask: () => void;
-  deleteTask: () => void;
+  deleteTask: (task: Task) => void;
 };
 
-type Task = {
+export type Task = {
   _id: string;
   title: string;
   description: string;
   dueDate: string;
 };
+
+export type TaskId = Pick<Task, "_id">;
 
 export const TaskContext = createContext<TaskContextType | undefined>(
   undefined
@@ -61,7 +67,16 @@ export function TaskProvider({ children }: { children: React.ReactNode }) {
     }
   };
 
-  const deleteTask = async () => {};
+  const deleteTask = async (task: Task) => {
+    try {
+      const res = await deleteTaskRequest(task);
+      if (res.status === 200) {
+        setTasks((prevState) => prevState.filter((t) => t._id !== task._id));
+      }
+    } catch (err: any) {
+      setError(err.response.data);
+    }
+  };
 
   const updateTask = async () => {};
 
