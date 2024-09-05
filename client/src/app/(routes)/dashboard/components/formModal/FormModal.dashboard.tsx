@@ -69,10 +69,10 @@ export function FormModal({ setOpen }: State) {
           >
             Description
           </label>
-          <input
-            className="bg-white rounded-xl px-2 py-2 focus:outline-none text-sm text-black"
+          <textarea
+            className="bg-white resize-none rounded-xl px-2 py-2 focus:outline-none text-sm text-black"
             id="description"
-            type="text"
+            rows={5}
             {...register("description", {
               required: "Description is required",
               minLength: {

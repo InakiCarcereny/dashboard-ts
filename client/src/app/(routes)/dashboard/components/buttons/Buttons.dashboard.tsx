@@ -25,7 +25,7 @@ export function Buttons({
   return (
     <>
       <div
-        className={`w-full h-[150px] rounded-xl mb-[320px] flex items-center justify-center flex-col gap-1 ${
+        className={`w-full h-[150px] rounded-xl mb-[280px] flex items-center justify-center flex-col gap-1 ${
           isExpanded ? "" : "dark:bg-zinc-700/40 bg-zinc-300"
         }`}
       >

@@ -4,9 +4,7 @@ import { Trash } from "@/app/icons/trash";
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
-  TableFooter,
   TableHead,
   TableHeader,
   TableRow,
@@ -18,17 +16,17 @@ export function TaskTable() {
   return (
     <Table>
       <TableHeader>
-        <TableRow className="w-full">
-          <TableHead className="w-[400px] font-semibold text-blue-600">
+        <TableRow className="w-full border-none">
+          <TableHead className="w-[400px] font-semibold text-blue-600 text-xl">
             Tittle
           </TableHead>
-          <TableHead className="w-[400px] font-semibold text-blue-600">
+          <TableHead className="w-[400px] font-semibold text-blue-600 text-xl">
             Description
           </TableHead>
-          <TableHead className="w-[400px] font-semibold text-blue-600">
+          <TableHead className="w-[400px] font-semibold text-blue-600 text-xl">
             Date
           </TableHead>
-          <TableHead className="w-[400px] font-semibold text-blue-600">
+          <TableHead className="w-[400px] font-semibold text-blue-600 text-xl">
             Actions
           </TableHead>
         </TableRow>
@@ -37,7 +35,7 @@ export function TaskTable() {
         {tasks.map((task) => (
           <TableRow
             key={task._id}
-            className="font-semibold hover:bg-zinc-300 dark:hover:bg-zinc-700/40"
+            className="font-semibold hover:bg-zinc-300 dark:hover:bg-zinc-700/40 border-none"
           >
             <TableCell>{task.title}</TableCell>
             <TableCell>{task.description}</TableCell>

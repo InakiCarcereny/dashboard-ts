@@ -10,6 +10,7 @@ import { Buttons } from "../buttons/Buttons.dashboard";
 import { Folder } from "@/app/icons/folder";
 import { Balloon } from "@/app/icons/balloon";
 import { FormModal } from "../formModal/FormModal.dashboard";
+import { Building } from "@/app/icons/building";
 
 const links = [
   {
@@ -29,18 +30,23 @@ const links = [
   },
   {
     label: "Contacts",
-    icon: Phone(),
+    icon: Phone({}),
     href: "/dashboard/contacts",
   },
   {
     label: "Latest Activities",
-    icon: Folder(),
+    icon: Folder({}),
     href: "/dashboard/latest-activities",
   },
   {
     label: "Events",
     icon: Balloon(),
     href: "/dashboard/events",
+  },
+  {
+    label: "Companies",
+    icon: Building({}),
+    href: "/dashboard/companies",
   },
 ];
 
@@ -71,6 +77,7 @@ export function Aside() {
                 icon={link.icon}
                 href={link.href}
                 key={index}
+                index={index}
                 pathname={pathname}
                 isExpanded={isExpanded}
               />

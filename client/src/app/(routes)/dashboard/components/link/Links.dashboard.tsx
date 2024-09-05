@@ -6,11 +6,11 @@ export function Links({
   icon,
   href,
   pathname,
-  key,
+  index,
   isExpanded,
 }: LinkProps) {
   return (
-    <li key={key}>
+    <li key={index}>
       <Link
         href={href}
         className={`flex items-center gap-4 px-2 py-2 rounded-xl duration-200 hover:bg-zinc-300 dark:hover:bg-zinc-700/40 ${
