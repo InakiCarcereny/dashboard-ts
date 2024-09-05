@@ -1,8 +1,8 @@
-export function Phone() {
+export function Phone({ className }: { className?: string }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      className="icon icon-tabler icon-tabler-phone-filled"
+      className={`icon icon-tabler icon-tabler-phone-filled ${className}`}
       width="26"
       height="26"
       viewBox="0 0 24 24"
