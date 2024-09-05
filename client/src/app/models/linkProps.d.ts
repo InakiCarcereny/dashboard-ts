@@ -3,6 +3,6 @@ export interface LinkProps {
   icon: React.ReactNode;
   href: string;
   pathname: string;
-  key: number;
+  index: number;
   isExpanded: boolean;
 }
