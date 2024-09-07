@@ -3,7 +3,7 @@ import { Pin } from "@/app/icons/pin";
 
 export function Events() {
   return (
-    <div className="h-[600px] w-[375px] bg-zinc-300 dark:bg-zinc-700/40 rounded-xl dark:text-zinc-700/40 px-4 py-2 flex flex-col">
+    <div className="h-[600px] w-full bg-zinc-300 dark:bg-zinc-700/40 rounded-xl dark:text-zinc-700/40 px-4 py-2 flex flex-col">
       <span className="flex items-center gap-2 font-semibold text-sm dark:text-white">
         <Pin />
         Upcoming Events

@@ -5,6 +5,7 @@ import "./globals.css";
 import { UserProvider } from "@/app/context/user";
 import { ThemeProvider } from "../components/theme-provider";
 import { TaskProvider } from "@/app/context/task";
+import { CompanyProvider } from "@/app/(routes)/dashboard/(routes)/companies/context/company";
 
 const poppins = Poppins({ subsets: ["latin"], weight: ["400"] });
 
@@ -28,7 +29,9 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <UserProvider>
-            <TaskProvider>{children}</TaskProvider>
+            <TaskProvider>
+              <CompanyProvider>{children}</CompanyProvider>
+            </TaskProvider>
           </UserProvider>
         </ThemeProvider>
       </body>
