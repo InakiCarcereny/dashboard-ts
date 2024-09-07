@@ -3,6 +3,7 @@ import cors from "cors";
 import { PORT } from "./config.js";
 import userRoutes from "./routes/user.routes.js";
 import taskRoutes from "./routes/task.routes.js";
+import companyRoutes from "./routes/company.routes.js";
 import { connectDB } from "./db.js";
 import cookieParser from "cookie-parser";
 
@@ -20,6 +21,7 @@ app.use(cookieParser());
 
 app.use("/auth", userRoutes);
 app.use("/task", taskRoutes);
+app.use("/company", companyRoutes);
 
 app.listen(PORT);
 console.log(`Server running on port ${PORT}`);
