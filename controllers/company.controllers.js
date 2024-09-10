@@ -7,7 +7,7 @@ export const getAllCompanies = async (req, res) => {
   const token = req.cookies.token;
 
   if (!token) {
-    res.status(401).json({ message: "Unauthorized" });
+    return res.status(401).json({ message: "Unauthorized" });
   }
 
   try {
@@ -34,7 +34,7 @@ export const createCompany = async (req, res) => {
   const token = req.cookies.token;
 
   if (!token) {
-    res.status(401).json({ message: "Unauthorized" });
+    return res.status(401).json({ message: "Unauthorized" });
   }
 
   try {
@@ -68,7 +68,6 @@ export const createCompany = async (req, res) => {
 
     res.status(201).json(newCompany);
   } catch (err) {
-    // console.log(err);
     res.status(500).json({
       message: "Error creating company",
     });
