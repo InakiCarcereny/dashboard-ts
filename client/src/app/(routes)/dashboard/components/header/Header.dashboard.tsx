@@ -34,9 +34,11 @@ export function Header() {
           <span className="bg-blue-600  rounded-full px-[2px] py-[2px]">
             <Notifications />
           </span>
-          <span className="bg-blue-600 rounded-full px-[2px] py-[2px] flex items-center gap-2">
-            <ButtonProfile />
-          </span>
+          <img
+            src={`https://api.dicebear.com/9.x/initials/svg?seed=${user?.username}`}
+            alt="avatar"
+            className="rounded-full h-11 w-11"
+          ></img>
           <div className="flex flex-col">
             <span className="text-xs font-semibold text-zinc-600 dark:text-white/60">
               Hi {user?.username}! 👋
