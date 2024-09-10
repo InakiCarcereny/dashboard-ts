@@ -15,21 +15,24 @@ export function PrevContacts() {
 
   return (
     <div className="h-[275px] w-[292px] bg-zinc-300 dark:bg-zinc-700/40 rounded-xl dark:text-zinc-700/40 px-4 py-2">
-      <span className="flex items-center gap-2 font-semibold dark:text-white text-xl">
+      <span className="flex items-center gap-2 font-semibold dark:text-white text-sm">
         <Phone className="text-blue-600" />
         Contacts
       </span>
 
       <ul className="flex flex-col gap-4 mt-4">
-        {users.slice(0, 4).map((user: MappdedUser, index) => {
+        {users.slice(0, 4).map((user: MappdedUser) => {
           return (
             <li
               key={user._id}
-              className="flex items-center gap-4 dark:text-white text-black font-semibold"
+              className="flex items-center gap-4 dark:text-white text-zinc-800 text-sm font-semibold"
             >
-              <span>{index + 1}</span>
               <div className="flex items-center gap-2">
-                <img src={userImg} className="rounded-full h-8 w-8"></img>
+                <img
+                  src={`https://api.dicebear.com/9.x/fun-emoji/svg?seed=${user._id}`}
+                  alt="avatar"
+                  className="rounded-full h-8 w-8"
+                ></img>
                 <span>{user._firstname}</span>
                 <span>{user._lastname}</span>
               </div>
