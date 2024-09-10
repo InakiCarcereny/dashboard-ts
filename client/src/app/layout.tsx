@@ -6,6 +6,7 @@ import { UserProvider } from "@/app/context/user";
 import { ThemeProvider } from "../components/theme-provider";
 import { TaskProvider } from "@/app/context/task";
 import { CompanyProvider } from "@/app/(routes)/dashboard/(routes)/companies/context/company";
+import { EventsProvider } from "@/app/(routes)/dashboard/(routes)/events/context/events";
 
 const poppins = Poppins({ subsets: ["latin"], weight: ["400"] });
 
@@ -22,18 +23,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={poppins.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <UserProvider>
-            <TaskProvider>
-              <CompanyProvider>{children}</CompanyProvider>
-            </TaskProvider>
-          </UserProvider>
-        </ThemeProvider>
+        <UserProvider>
+          <TaskProvider>
+            <CompanyProvider>
+              <EventsProvider>{children}</EventsProvider>
+            </CompanyProvider>
+          </TaskProvider>
+        </UserProvider>
       </body>
     </html>
   );

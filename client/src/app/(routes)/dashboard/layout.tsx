@@ -6,6 +6,7 @@ import { Aside } from "./components/aside/Aside.dashboard";
 import { useUser } from "@/app/context/user";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const poppins = Poppins({ subsets: ["latin"], weight: ["400"] });
 
@@ -32,14 +33,21 @@ export default function DashboardLayout({
   }
 
   return (
-    <div className={`${poppins.className} bg-white dark:bg-zinc-900`}>
-      <Header />
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="system"
+      enableSystem
+      disableTransitionOnChange
+    >
+      <div className={`${poppins.className} bg-white dark:bg-zinc-900`}>
+        <Header />
 
-      <section className="flex gap-12 w-screen mt-6 px-4">
-        <Aside />
+        <section className="flex gap-12 w-screen mt-6 px-4">
+          <Aside />
 
-        <main className="w-full rounded-xl">{children}</main>
-      </section>
-    </div>
+          <main className="w-full rounded-xl">{children}</main>
+        </section>
+      </div>
+    </ThemeProvider>
   );
 }
