@@ -41,8 +41,6 @@ export const createCompany = async (req, res) => {
     const user = jwt.verify(token, JWT_SECRET);
     const { id } = user;
 
-    console.log(req.file);
-
     const userFind = await User.findById(id);
 
     if (!req.file || req.file.mimetype !== "image/png") {
