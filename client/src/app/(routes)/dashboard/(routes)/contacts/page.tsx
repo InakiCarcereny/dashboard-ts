@@ -38,19 +38,19 @@ export default function Contacts() {
       <Table>
         <TableHeader>
           <TableRow className="w-full border-none">
-            <TableHead className="w-[400px] font-semibold text-blue-600 text-xl">
+            <TableHead className="w-[400px] font-semibold text-blue-600 text-base sm:text-xl">
               Contact
             </TableHead>
-            <TableHead className="w-[400px] font-semibold text-blue-600 text-xl">
+            <TableHead className="w-[400px] font-semibold text-blue-600 text-base sm:text-xl">
               Email
             </TableHead>
-            <TableHead className="w-[400px] font-semibold text-blue-600 text-xl">
+            <TableHead className="w-[400px] font-semibold text-blue-600 text-base sm:text-xl">
               Number
             </TableHead>
-            <TableHead className="w-[400px] font-semibold text-blue-600 text-xl">
+            <TableHead className="w-[400px] font-semibold text-blue-600 text-base sm:text-xl">
               Website
             </TableHead>
-            <TableHead className="w-[400px] font-semibold text-blue-600 text-xl">
+            <TableHead className="w-[400px] font-semibold text-blue-600 text-base sm:text-xl">
               Company
             </TableHead>
           </TableRow>
@@ -65,7 +65,7 @@ export default function Contacts() {
                 <img
                   src={`https://api.dicebear.com/9.x/fun-emoji/svg?seed=${user._id}`}
                   alt="avatar"
-                  className="rounded-full h-12 w-12"
+                  className="rounded-full h-8 w-8 sm:h-12 sm:w-12"
                 ></img>
                 {user._firstname} {user._lastname}
               </TableCell>

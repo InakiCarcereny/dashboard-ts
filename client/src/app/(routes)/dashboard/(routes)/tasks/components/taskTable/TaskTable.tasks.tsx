@@ -22,16 +22,16 @@ export function TaskTable() {
       <Table>
         <TableHeader>
           <TableRow className="w-full border-none">
-            <TableHead className="w-[400px] font-semibold text-blue-600 text-xl">
+            <TableHead className="w-[400px] font-semibold text-blue-600 text-base sm:text-xl">
               Tittle
             </TableHead>
-            <TableHead className="w-[400px] font-semibold text-blue-600 text-xl">
+            <TableHead className="w-[400px] font-semibold text-blue-600 text-base sm:text-xl">
               Description
             </TableHead>
-            <TableHead className="w-[400px] font-semibold text-blue-600 text-xl">
+            <TableHead className="w-[400px] font-semibold text-blue-600 text-base sm:text-xl">
               Date
             </TableHead>
-            <TableHead className="w-[400px] font-semibold text-blue-600 text-xl">
+            <TableHead className="w-[400px] font-semibold text-blue-600 text-base sm:text-xl">
               Actions
             </TableHead>
           </TableRow>
@@ -45,7 +45,7 @@ export function TaskTable() {
               <TableCell>{task.title}</TableCell>
               <TableCell>{task.description}</TableCell>
               <TableCell>{format(task.dueDate)}</TableCell>
-              <TableCell className="flex items-center gap-2">
+              <TableCell className="flex flex-col sm:flex-row items-center gap-2">
                 <button className="px-2 py-2 rounded-full cursor-pointer">
                   <Ballpen />
                 </button>

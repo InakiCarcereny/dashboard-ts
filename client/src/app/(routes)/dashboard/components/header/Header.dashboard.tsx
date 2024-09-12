@@ -73,17 +73,17 @@ export function Header() {
         <nav className="flex items-center justify-between w-full gap-4 md:gap-0">
           <div className="flex items-center gap-6">
             <h3 className="flex items-center font-semibold text-black dark:text-white gap-2 text-lg">
-              <button className="block md:hidden" onClick={toggleOpen}>
+              <button className="block 2xl:hidden" onClick={toggleOpen}>
                 <Hamburguer />
               </button>
-              <div className="hidden md:flex items-center gap-2">
+              <div className="hidden 2xl:flex items-center gap-2">
                 <Dashboard />
                 Dashboard
               </div>
             </h3>
           </div>
 
-          <div className="dark:bg-zinc-700/40 bg-zinc-300 rounded-xl border-none px-2 py-2 flex items-center gap-4 w-full md:w-[600px]">
+          <div className="dark:bg-zinc-700/40 bg-zinc-300 rounded-xl border-none px-2 py-2 flex items-center gap-4 w-full md:w-[400px] xl:w-[600px]">
             <Search />
             <input
               type="text"
@@ -151,7 +151,7 @@ export function Header() {
           </div>
 
           <footer className="flex flex-col gap-4">
-            <div className="flex items-center gap-4 px-2">
+            <div className="flex items-center gap-4 px-2 md:hidden">
               <img
                 src={`https://api.dicebear.com/9.x/initials/svg?seed=${user?.username}`}
                 alt="avatar"
@@ -165,7 +165,7 @@ export function Header() {
               </div>
             </div>
 
-            <span className="px-[1.5px] py-[1.5px] flex items-center gap-2 font-semibold dark:text-white text-sm hover:bg-zinc-300 dark:hover:bg-zinc-700/40 rounded-xl">
+            <span className="px-[1.5px] py-[1.5px] flex items-center gap-2 font-semibold dark:text-white text-sm hover:bg-zinc-300 dark:hover:bg-zinc-700/40 rounded-xl md:hidden">
               <ModeToggle />
               Change theme
             </span>

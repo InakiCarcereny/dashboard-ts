@@ -39,7 +39,9 @@ export default function DashboardLayout({
       enableSystem
       disableTransitionOnChange
     >
-      <div className={`${poppins.className} bg-white dark:bg-zinc-900`}>
+      <div
+        className={`${poppins.className} min-h-[992px] bg-white dark:bg-zinc-900`}
+      >
         <Header />
 
         <section className="flex gap-12 w-screen mt-6 px-4">

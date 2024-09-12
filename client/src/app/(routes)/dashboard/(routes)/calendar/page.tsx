@@ -14,6 +14,7 @@ export default function Page() {
         events={[]}
         startAccessor="start"
         endAccessor="end"
+        className="text-black dark:text-white"
       />
     </div>
   );
