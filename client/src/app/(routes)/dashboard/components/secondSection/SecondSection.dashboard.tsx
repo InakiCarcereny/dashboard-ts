@@ -1,19 +1,22 @@
-import { useState } from "react";
 import { Events } from "../events/Events.dashboard";
-import { Calendar } from "@/components/ui/calendar";
+import { Calendar, dayjsLocalizer } from "react-big-calendar";
+import "react-big-calendar/lib/css/react-big-calendar.css";
+import dayjs from "dayjs";
 
 export function SecondSection() {
-  const [date, setDate] = useState<Date | undefined>(new Date());
+  const localizer = dayjsLocalizer(dayjs);
   return (
     <div className="flex flex-col gap-4 w-full">
       <Events />
 
-      <div className="h-[275px] w-full bg-zinc-300 dark:bg-zinc-700/40 rounded-xl flex items-center justify-center">
+      <div className="h-[275px] w-full">
         <Calendar
-          mode="single"
-          selected={date}
-          onSelect={setDate}
-          className="dark:text-white  text-black"
+          localizer={localizer}
+          events={[]}
+          startAccessor="start"
+          endAccessor="end"
+          toolbar={false}
+          className="dark:text-white text-black"
         />
       </div>
     </div>
