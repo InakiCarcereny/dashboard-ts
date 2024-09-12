@@ -9,13 +9,13 @@ import { PrevCompanies } from "../prevCompanies/PrevCompanies.dashboard";
 export function FirstSection() {
   return (
     <div className="flex flex-col gap-4">
-      <div className="flex gap-4">
+      <div className="flex flex-col sm:flex-col md:flex-col lg:flex-col xl:flex-row gap-4">
         <Earnings />
         <TaskNumber />
       </div>
 
       <MonthResults />
-      <div className="flex gap-4">
+      <div className="flex flex-col sm:flex-col md:flex-col lg:flex-col xl:flex-row gap-4">
         <PrevContacts />
         <PrevActivities />
         <PrevCompanies />

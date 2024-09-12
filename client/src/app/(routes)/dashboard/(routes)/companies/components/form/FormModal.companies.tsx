@@ -5,7 +5,7 @@ import { X } from "@/app/icons/x";
 type FormValues = {
   name: string;
   logo: string;
-  revenue: number;
+  revenue: string;
   size: string;
   type: string;
   country: string;
@@ -43,9 +43,7 @@ export function FormModal({ setOpen }: State) {
         <input
           type="file"
           className="rounded-xl bg-white w-[250px] h-[200px]"
-          {...register("logo", {
-            required: "Logo is required",
-          })}
+          {...register("logo")}
         />
 
         {errors.logo && (

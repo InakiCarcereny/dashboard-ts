@@ -19,7 +19,7 @@ export type Company = {
   _id?: string;
   name: string;
   logo: string;
-  revenue: number;
+  revenue: string;
   size: string;
   type: string;
   country: string;

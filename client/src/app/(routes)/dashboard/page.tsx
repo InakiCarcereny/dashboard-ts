@@ -5,7 +5,7 @@ import { SecondSection } from "./components/secondSection/SecondSection.dashboar
 
 export default function Dashboard() {
   return (
-    <div className="flex gap-4">
+    <div className="xl:flex gap-4 grid grid-cols-1">
       <FirstSection />
 
       <SecondSection />

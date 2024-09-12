@@ -64,7 +64,7 @@ export function Aside() {
 
   return (
     <aside
-      className={`flex flex-col h-[905px] relative ${
+      className={`hidden sm:flex flex-col h-[905px] relative ${
         isExpanded ? "w-[42px] duration-150" : "w-[250px] duration-150"
       }`}
     >

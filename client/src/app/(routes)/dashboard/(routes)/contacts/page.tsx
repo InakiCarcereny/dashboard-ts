@@ -11,7 +11,6 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
-import { userImg } from "@/app/consts/userImg";
 import { Company } from "@/app/models/usersApi";
 
 export interface MappdedUser {

@@ -4,7 +4,7 @@ export function Hour() {
   const l = "es";
   const t = new Date();
   return (
-    <div className="h-[275px] w-[292px] bg-zinc-300 dark:bg-zinc-700/40 rounded-xl dark:text-zinc-700/40 relative">
+    <div className="h-[275px] w-full sm:w-full md-full lg-full xl:w-[292px] bg-zinc-300 dark:bg-zinc-700/40 rounded-xl dark:text-zinc-700/40 relative">
       <img
         className="w-full h-full rounded-xl"
         src="https://i.pinimg.com/564x/b3/22/f0/b322f0de06beef5351efc3a3fd432e1a.jpg"
