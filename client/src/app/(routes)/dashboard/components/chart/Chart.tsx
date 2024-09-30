@@ -35,7 +35,7 @@ export function Chart() {
   return (
     <ChartContainer
       config={chartConfig}
-      className="h-full w-full font-semibold text-sm dark:text-white"
+      className="h-[330px] w-full font-semibold text-sm dark:text-white"
     >
       <BarChart accessibilityLayer data={chartData}>
         <CartesianGrid vertical={false} />
