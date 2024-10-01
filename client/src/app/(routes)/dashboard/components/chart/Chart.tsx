@@ -12,22 +12,22 @@ import {
 } from "@/components/ui/chart";
 
 const chartData = [
-  { month: "January", desktop: 186, mobile: 80 },
-  { month: "February", desktop: 305, mobile: 200 },
-  { month: "March", desktop: 237, mobile: 120 },
-  { month: "April", desktop: 73, mobile: 190 },
-  { month: "May", desktop: 209, mobile: 130 },
-  { month: "June", desktop: 214, mobile: 140 },
+  { month: "January", money: 152300, lost: 3500 },
+  { month: "February", money: 167478, lost: 2500 },
+  { month: "March", money: 182345, lost: 42567 },
+  { month: "April", money: 197412, lost: 1200 },
+  { month: "May", money: 202378, lost: 75235 },
+  { month: "June", money: 217445, lost: 29765 },
 ];
 
 const chartConfig = {
-  desktop: {
-    label: "Desktop",
+  money: {
+    label: "Money",
     color: "#2563eb",
   },
-  mobile: {
-    label: "Mobile",
-    color: "#60a5fa",
+  lost: {
+    label: "Lost",
+    color: "#f59e0b",
   },
 } satisfies ChartConfig;
 
@@ -41,15 +41,18 @@ export function Chart() {
         <CartesianGrid vertical={false} />
         <XAxis
           dataKey="month"
-          tickLine={false}
-          axisLine={false}
+          tickLine={true}
+          axisLine={true}
           tickMargin={10}
           tickFormatter={(value) => value.slice(0, 3)}
         />
-        <ChartTooltip content={<ChartTooltipContent />} />
+        <ChartTooltip
+          labelClassName="text-white"
+          content={<ChartTooltipContent />}
+        />
         <ChartLegend content={<ChartLegendContent />} />
-        <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} />
-        <Bar dataKey="mobile" fill="var(--color-mobile)" radius={4} />
+        <Bar dataKey="money" fill="var(--color-money)" radius={6} />
+        <Bar dataKey="lost" fill="var(--color-lost)" radius={6} />
       </BarChart>
     </ChartContainer>
   );

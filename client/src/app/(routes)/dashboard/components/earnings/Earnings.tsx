@@ -7,7 +7,7 @@ export function Earnings() {
         <Coin />
         Earnings
       </span>
-      <p className="font-semibol dark:text-white text-4xl">$ 5.500</p>
+      <p className="font-semibol dark:text-white text-4xl">$ 910.291</p>
     </div>
   );
 }
