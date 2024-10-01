@@ -2,7 +2,7 @@
 
 import { TaskTable } from "./components/taskTable/TaskTable.tasks";
 
-export default function Tasks({ searchParams }: { searchParams: string }) {
+export default function Tasks({ searchParams }: { searchParams: any }) {
   const query = searchParams?.query || "";
 
   return (

@@ -5,7 +5,7 @@ import { FormModal } from "../events/components/form/FormModal.events";
 import { EventTable } from "./components/eventTable/EventTable";
 import { Header } from "./components/header/Header.events";
 
-export default function Events({ searchParams }: { searchParams: string }) {
+export default function Events({ searchParams }: { searchParams: any }) {
   const query = searchParams?.query || "";
   const [open, setOpen] = useState(false);
 

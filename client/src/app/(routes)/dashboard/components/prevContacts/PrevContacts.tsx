@@ -1,6 +1,6 @@
 import { useUsers } from "@/app/hooks/useUsers";
 import { useEffect } from "react";
-import { MappdedUser } from "../../(routes)/contacts/page";
+import { MappdedUser } from "../../(routes)/contacts/components/table/ContactsTable";
 import { Phone } from "@/app/icons/phone";
 import Link from "next/link";
 import { ArrowMinRight } from "@/app/icons/arrowMinRight";
