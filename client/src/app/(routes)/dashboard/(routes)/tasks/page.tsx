@@ -2,10 +2,12 @@
 
 import { TaskTable } from "./components/taskTable/TaskTable.tasks";
 
-export default function Tasks() {
+export default function Tasks({ searchParams }: { searchParams: string }) {
+  const query = searchParams?.query || "";
+
   return (
     <div className="w-full h-full">
-      <TaskTable />
+      <TaskTable query={query} />
     </div>
   );
 }

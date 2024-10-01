@@ -18,7 +18,16 @@ export interface MappdedUser {
   _company: Company;
 }
 
-export function ContactsTable({ users }: { users: MappdedUser[] }) {
+export function ContactsTable({
+  users,
+  query,
+}: {
+  users: MappdedUser[];
+  query: string;
+}) {
+  const filteredUsers = users.filter((user) =>
+    user._firstname.toLocaleLowerCase().includes(query)
+  );
   return (
     <Table>
       <TableHeader>
@@ -41,7 +50,7 @@ export function ContactsTable({ users }: { users: MappdedUser[] }) {
         </TableRow>
       </TableHeader>
       <TableBody>
-        {users.slice(0, 10).map((user: MappdedUser) => (
+        {filteredUsers.slice(0, 10).map((user: MappdedUser) => (
           <TableRow
             key={user._id}
             className="font-semibold hover:bg-zinc-300 dark:hover:bg-zinc-700/40 border-none"

@@ -4,6 +4,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 import {
   createTaskRequest,
   deleteTaskRequest,
+  getTaskRequest,
   getTasksRequest,
 } from "../interceptors/task";
 import { type CreateTaskRequest } from "../interceptors/task";
@@ -14,6 +15,7 @@ type TaskContextType = {
   createTask: (data: CreateTaskRequest) => void;
   updateTask: () => void;
   deleteTask: (task: Task) => void;
+  getTask: (task: Task) => void;
 };
 
 export type Task = {
@@ -78,6 +80,15 @@ export function TaskProvider({ children }: { children: React.ReactNode }) {
     }
   };
 
+  const getTask = async (task: Task) => {
+    try {
+      const res = await getTaskRequest(task);
+      setTasks((prevState) => [...prevState, res.data]);
+    } catch (err: any) {
+      setError(err.response.data);
+    }
+  };
+
   const updateTask = async () => {};
 
   return (
@@ -88,6 +99,7 @@ export function TaskProvider({ children }: { children: React.ReactNode }) {
         createTask,
         updateTask,
         deleteTask,
+        getTask,
       }}
     >
       {children}

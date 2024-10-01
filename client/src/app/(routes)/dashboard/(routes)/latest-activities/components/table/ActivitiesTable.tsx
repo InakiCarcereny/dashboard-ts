@@ -9,7 +9,10 @@ import {
 
 import activities from "@/app/mocks/activities.json";
 
-export function ActivitiesTable() {
+export function ActivitiesTable({ query }: { query: string }) {
+  const filteredActivities = activities.filter((activity) =>
+    activity.companyName.toLocaleLowerCase().includes(query)
+  );
   return (
     <Table>
       <TableHeader>
@@ -26,7 +29,7 @@ export function ActivitiesTable() {
         </TableRow>
       </TableHeader>
       <TableBody>
-        {activities.map((activity) => (
+        {filteredActivities.map((activity) => (
           <TableRow
             key={activity.companyName}
             className="font-semibold hover:bg-zinc-300 dark:hover:bg-zinc-700/40 border-none rounded-xl"

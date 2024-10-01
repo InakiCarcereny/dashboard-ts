@@ -5,8 +5,10 @@ import { useEffect } from "react";
 import { Header } from "./components/header/Header.contacts";
 import { ContactsTable } from "./components/table/ContactsTable";
 
-export default function Contacts() {
+export default function Contacts({ searchParams }: { searchParams: string }) {
   const { users, getUsers } = useUsers();
+
+  const query = searchParams?.query || "";
 
   useEffect(() => {
     getUsers();
@@ -16,7 +18,7 @@ export default function Contacts() {
     <>
       <Header />
 
-      <ContactsTable users={users} />
+      <ContactsTable users={users} query={query} />
     </>
   );
 }

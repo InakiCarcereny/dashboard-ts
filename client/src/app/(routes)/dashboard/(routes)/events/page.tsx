@@ -5,7 +5,8 @@ import { FormModal } from "../events/components/form/FormModal.events";
 import { EventTable } from "./components/eventTable/EventTable";
 import { Header } from "./components/header/Header.events";
 
-export default function Events() {
+export default function Events({ searchParams }: { searchParams: string }) {
+  const query = searchParams?.query || "";
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => {
@@ -18,7 +19,7 @@ export default function Events() {
 
       {open && <FormModal setOpen={setOpen} />}
 
-      <EventTable />
+      <EventTable query={query} />
     </section>
   );
 }

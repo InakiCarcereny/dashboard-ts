@@ -10,8 +10,12 @@ import { Ballpen } from "@/app/icons/ballpen";
 import { Trash } from "@/app/icons/trash";
 import { useEvents } from "../../context/events";
 
-export function EventTable() {
+export function EventTable({ query }: { query: string }) {
   const { events, deleteEvent } = useEvents();
+
+  const filteredEvents = events.filter((event) =>
+    event.title.toLocaleLowerCase().includes(query)
+  );
   return (
     <Table>
       <TableHeader>
@@ -37,7 +41,7 @@ export function EventTable() {
         </TableRow>
       </TableHeader>
       <TableBody>
-        {events.map((event) => (
+        {filteredEvents.map((event) => (
           <TableRow
             key={event._id}
             className="font-semibold hover:bg-zinc-300 dark:hover:bg-zinc-700/40 border-none"

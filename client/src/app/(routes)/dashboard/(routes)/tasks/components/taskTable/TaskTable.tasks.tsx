@@ -11,8 +11,12 @@ import {
 } from "@/components/ui/table";
 import { format } from "@formkit/tempo";
 
-export function TaskTable() {
+export function TaskTable({ query }: { query: string }) {
   const { tasks, deleteTask } = useTask();
+
+  const filteredTasks = tasks.filter((task) =>
+    task.title.toLocaleLowerCase().includes(query)
+  );
 
   return (
     <>
@@ -37,7 +41,7 @@ export function TaskTable() {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {tasks.map((task) => (
+          {filteredTasks.map((task) => (
             <TableRow
               key={task._id}
               className="font-semibold hover:bg-zinc-300 dark:hover:bg-zinc-700/40 border-none"

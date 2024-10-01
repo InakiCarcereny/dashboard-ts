@@ -11,12 +11,9 @@ import { Phone } from "@/app/icons/phone";
 import { Folder } from "@/app/icons/folder";
 import { Balloon } from "@/app/icons/balloon";
 import { Building } from "@/app/icons/building";
-import Link from "next/link";
 import { Home } from "@/app/icons/home";
-import { usePathname } from "next/navigation";
-import axios from "axios";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
-import { useForm } from "react-hook-form";
 import { ResponsiveAside } from "../responsiveAside/ResponsiveAside.dashboard";
 
 const links = [
@@ -61,10 +58,8 @@ export function Header() {
   const { user, logOut } = useUser();
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
-
-  const { register, handleSubmit, formState } = useForm<{ search: string }>();
-
-  const { errors } = formState;
+  const searchParams = useSearchParams();
+  const { replace } = useRouter();
 
   const toggleOpen = () => {
     setOpen(!open);
@@ -74,45 +69,17 @@ export function Header() {
     setOpen(false);
   };
 
-  const onSubmit = handleSubmit((data) => {
-    if (pathname === "/dashboard") {
-      return;
+  const handleSearch = (term: string) => {
+    const params = new URLSearchParams(searchParams);
+
+    if (term) {
+      params.set("query", term);
+    } else {
+      params.delete("query");
     }
 
-    if (pathname === "/dashboard/calendar") {
-      return;
-    }
-
-    if (pathname === "/dashboard/tasks") {
-      axios.get("/task").then((res) => {
-        console.log(res.data);
-      });
-    }
-
-    if (pathname === "/dashboard/contacts") {
-      axios.get("/company").then((res) => {
-        console.log(res.data);
-      });
-    }
-
-    if (pathname === "/dashboard/latest-activities") {
-      axios.get("/event").then((res) => {
-        console.log(res.data);
-      });
-    }
-
-    if (pathname === "/dashboard/events") {
-      axios.get("/event").then((res) => {
-        console.log(res.data);
-      });
-    }
-
-    if (pathname === "/dashboard/companies") {
-      axios.get("/company").then((res) => {
-        console.log(res.data);
-      });
-    }
-  });
+    replace(`${pathname}?${params.toString()}`);
+  };
 
   return (
     <>
@@ -130,18 +97,16 @@ export function Header() {
             </h3>
           </div>
 
-          <form
-            onSubmit={onSubmit}
-            className="dark:bg-zinc-700/40 bg-zinc-300 rounded-xl border-none px-2 py-2 flex items-center gap-4 w-full md:w-[400px] xl:w-[600px]"
-          >
+          <div className="dark:bg-zinc-700/40 bg-zinc-300 rounded-xl border-none px-2 py-2 flex items-center gap-4 w-full md:w-[400px] xl:w-[600px]">
             <Search />
             <input
               type="text"
+              onChange={(e) => handleSearch(e.target.value)}
+              defaultValue={searchParams.get("query")?.toString()}
               className="bg-transparent focus:outline-none text-sm font-base w-full"
               placeholder="Search..."
-              {...register("search")}
             />
-          </form>
+          </div>
 
           <div className="hidden md:flex items-center gap-4">
             <span className="bg-blue-600 rounded-full px-[1.5px] py-[1.5px]">
