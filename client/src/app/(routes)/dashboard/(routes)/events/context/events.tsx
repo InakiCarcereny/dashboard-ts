@@ -62,6 +62,9 @@ export function EventsProvider({ children }: { children: React.ReactNode }) {
 
   const createEvent = async (data: CreateEventRequest) => {
     try {
+      if (events.length === 10) {
+        return;
+      }
       const res = await createEventRequest(data);
       setEvents((prevState) => [...prevState, res.data]);
     } catch (err: any) {

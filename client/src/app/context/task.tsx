@@ -60,8 +60,10 @@ export function TaskProvider({ children }: { children: React.ReactNode }) {
 
   const createTask = async (data: CreateTaskRequest) => {
     try {
+      if (tasks.length === 10) {
+        return;
+      }
       const res = await createTaskRequest(data);
-      console.log(res);
       setTasks((prevState) => [...prevState, res.data]);
     } catch (err: any) {
       console.log(err);

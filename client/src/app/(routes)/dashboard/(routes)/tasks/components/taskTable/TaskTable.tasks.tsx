@@ -10,13 +10,22 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { format } from "@formkit/tempo";
+import { useEffect, useState } from "react";
 
 export function TaskTable({ query }: { query: string }) {
   const { tasks, deleteTask } = useTask();
+  const [message, setMessage] = useState("");
 
   const filteredTasks = tasks.filter((task) =>
     task.title.toLocaleLowerCase().includes(query)
   );
+
+  useEffect(() => {
+    if (tasks.length === 10) {
+      setMessage("You can only have 10 tasks at the moment");
+      return;
+    }
+  }, [tasks]);
 
   return (
     <>
@@ -64,6 +73,7 @@ export function TaskTable({ query }: { query: string }) {
           ))}
         </TableBody>
       </Table>
+      <p className="text-red-500 text-sm font-semibold">{message}</p>
     </>
   );
 }
