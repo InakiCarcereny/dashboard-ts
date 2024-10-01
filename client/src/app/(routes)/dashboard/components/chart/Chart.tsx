@@ -12,21 +12,21 @@ import {
 } from "@/components/ui/chart";
 
 const chartData = [
-  { month: "January", money: 152300, lost: 3500 },
-  { month: "February", money: 167478, lost: 2500 },
-  { month: "March", money: 182345, lost: 42567 },
-  { month: "April", money: 197412, lost: 1200 },
-  { month: "May", money: 202378, lost: 75235 },
-  { month: "June", money: 217445, lost: 29765 },
+  { month: "January", won: 152300, losted: 3500 },
+  { month: "February", won: 167478, losted: 2500 },
+  { month: "March", won: 182345, losted: 42567 },
+  { month: "April", won: 197412, losted: 1200 },
+  { month: "May", won: 202378, losted: 75235 },
+  { month: "June", won: 217445, losted: 29765 },
 ];
 
 const chartConfig = {
-  money: {
-    label: "Money",
+  won: {
+    label: "Won",
     color: "#2563eb",
   },
-  lost: {
-    label: "Lost",
+  losted: {
+    label: "Losted",
     color: "#f59e0b",
   },
 } satisfies ChartConfig;
@@ -51,8 +51,8 @@ export function Chart() {
           content={<ChartTooltipContent />}
         />
         <ChartLegend content={<ChartLegendContent />} />
-        <Bar dataKey="money" fill="var(--color-money)" radius={6} />
-        <Bar dataKey="lost" fill="var(--color-lost)" radius={6} />
+        <Bar dataKey="won" fill="var(--color-won)" radius={6} />
+        <Bar dataKey="losted" fill="var(--color-losted)" radius={6} />
       </BarChart>
     </ChartContainer>
   );

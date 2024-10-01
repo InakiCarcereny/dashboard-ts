@@ -1,5 +1,7 @@
+import { ArrowMinRight } from "@/app/icons/arrowMinRight";
 import { Folder } from "@/app/icons/folder";
 import activities from "@/app/mocks/activities.json";
+import Link from "next/link";
 
 export function PrevActivities() {
   return (
@@ -9,12 +11,12 @@ export function PrevActivities() {
         Latest Activities
       </span>
 
-      <ul className="flex flex-col gap-4 mt-4">
+      <ul className="flex flex-col gap-2 mt-4">
         {activities.slice(0, 3).map((activity) => {
           return (
             <li className="flex items-center gap-4" key={activity.companyName}>
               <img
-                className="w-12 h-12 rounded-xl"
+                className="w-10 h-10 rounded-xl"
                 src={activity.logo}
                 alt={activity.companyName}
               />
@@ -29,6 +31,13 @@ export function PrevActivities() {
             </li>
           );
         })}
+        <Link
+          href="/dashboard/latest-activities"
+          className="text-sm mt-7 dark:text-white text-black font-semibold hover:text-blue-600 dark:hover:text-blue-600 duration-150 cursor-pointer flex items-center gap-2"
+        >
+          See more
+          <ArrowMinRight />
+        </Link>
       </ul>
     </div>
   );
