@@ -9,6 +9,9 @@ export interface CreateTaskRequest {
 
 export const getTasksRequest = async () => axios.get(`/task`);
 
+export const getTaskRequest = async (task: Task) =>
+  axios.get(`/task/${task.title}`);
+
 export const createTaskRequest = async (data: CreateTaskRequest) =>
   axios.post(`/task`, data);
 

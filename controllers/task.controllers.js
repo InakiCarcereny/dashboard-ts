@@ -3,6 +3,22 @@ import jwt from "jsonwebtoken";
 import User from "../models/user.model.js";
 import { JWT_SECRET } from "../config.js";
 
+export const getTask = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const task = await Task.findById(id);
+
+    if (!task) {
+      return res.status(404).json({ message: "Task not found" });
+    }
+
+    res.status(200).json(task);
+  } catch (err) {
+    res.status(500).json({ message: "Error getting task" });
+  }
+};
+
 export const getTasks = async (req, res) => {
   const token = req.cookies.token;
 
