@@ -10,7 +10,9 @@ export function TaskNumber() {
         <File />
         Number of tasks
       </span>
-      <p className="font-semibol dark:text-white text-4xl">{tasks.length}</p>
+      <p className="font-semibol dark:text-white text-4xl mt-2">
+        {tasks.length}
+      </p>
     </div>
   );
 }

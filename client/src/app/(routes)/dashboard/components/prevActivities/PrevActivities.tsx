@@ -11,7 +11,7 @@ export function PrevActivities() {
         Latest Activities
       </span>
 
-      <ul className="flex flex-col gap-2 mt-4">
+      <ul className="flex flex-col gap-2 mt-3">
         {activities.slice(0, 3).map((activity) => {
           return (
             <li className="flex items-center gap-4" key={activity.companyName}>

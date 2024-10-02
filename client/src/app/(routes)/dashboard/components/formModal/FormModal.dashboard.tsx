@@ -2,6 +2,7 @@
 
 import { useForm } from "react-hook-form";
 import { useTask } from "@/app/context/task";
+import { toast } from "sonner";
 
 type State = {
   setOpen: (value: boolean) => void;
@@ -22,6 +23,7 @@ export function FormModal({ setOpen }: State) {
 
   const onSubmit = handleSubmit(async (data) => {
     createTask(data);
+    toast.success("Task created successfully");
     reset();
     setOpen(false);
   });

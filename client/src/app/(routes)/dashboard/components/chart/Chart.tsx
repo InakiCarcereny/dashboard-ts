@@ -18,6 +18,10 @@ const chartData = [
   { month: "April", won: 197412, losted: 1200 },
   { month: "May", won: 202378, losted: 75235 },
   { month: "June", won: 217445, losted: 29765 },
+  { month: "July", won: 245645, losted: 53560 },
+  { month: "August", won: 282924, losted: 49776 },
+  { month: "September", won: 297412, losted: 3000 },
+  { month: "October", won: 302378, losted: 75235 },
 ];
 
 const chartConfig = {
