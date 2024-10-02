@@ -45,5 +45,5 @@ export const updateTaskSchema = z.object({
     .max(100, {
       message: "Description must be at most 100 characters",
     }),
-  dueDate: z.date(),
+  dueDate: z.date().optional(),
 });
