@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useEvents } from "../../context/events";
+import { toast } from "sonner";
 
 type FormValues = {
   title: string;
@@ -21,6 +22,7 @@ export function FormModal({ setOpen }: State) {
 
   const onSubmit = handleSubmit(async (data) => {
     createEvent(data);
+    toast.success("Event created successfully");
     reset();
     setOpen(false);
   });
