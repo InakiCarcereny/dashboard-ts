@@ -11,6 +11,8 @@ import {
 } from "@/components/ui/table";
 import { format } from "@formkit/tempo";
 import { useEffect, useState } from "react";
+import { toast } from "sonner";
+import Link from "next/link";
 
 export function TaskTable({ query }: { query: string }) {
   const { tasks, deleteTask } = useTask();
@@ -24,6 +26,8 @@ export function TaskTable({ query }: { query: string }) {
     if (tasks.length === 10) {
       setMessage("You can only have 10 tasks at the moment");
       return;
+    } else {
+      setMessage("");
     }
   }, [tasks]);
 
@@ -60,10 +64,15 @@ export function TaskTable({ query }: { query: string }) {
               <TableCell>{format(task.dueDate)}</TableCell>
               <TableCell className="flex flex-col sm:flex-row items-center gap-2">
                 <button className="px-2 py-2 rounded-full cursor-pointer">
-                  <Ballpen />
+                  <Link href={`/dashboard/tasks/${task._id}`}>
+                    <Ballpen />
+                  </Link>
                 </button>
                 <button
-                  onClick={() => deleteTask(task)}
+                  onClick={() => {
+                    deleteTask(task);
+                    toast.success("Task deleted successfully");
+                  }}
                   className="px-2 py-2 rounded-full cursor-pointer"
                 >
                   <Trash />

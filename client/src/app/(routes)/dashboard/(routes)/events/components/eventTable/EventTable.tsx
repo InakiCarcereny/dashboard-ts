@@ -10,6 +10,7 @@ import { Ballpen } from "@/app/icons/ballpen";
 import { Trash } from "@/app/icons/trash";
 import { useEvents } from "../../context/events";
 import { useEffect, useState } from "react";
+import { toast } from "sonner";
 
 export function EventTable({ query }: { query: string }) {
   const { events, deleteEvent } = useEvents();
@@ -23,6 +24,8 @@ export function EventTable({ query }: { query: string }) {
     if (events.length === 10) {
       setMessage("You can only have 10 events at the moment");
       return;
+    } else {
+      setMessage("");
     }
   }, [events]);
 
@@ -67,7 +70,10 @@ export function EventTable({ query }: { query: string }) {
                   <Ballpen />
                 </button>
                 <button
-                  onClick={() => deleteEvent(event)}
+                  onClick={() => {
+                    deleteEvent(event);
+                    toast.success("Event deleted successfully");
+                  }}
                   className="px-2 py-2 rounded-full cursor-pointer"
                 >
                   <Trash />
