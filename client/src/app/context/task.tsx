@@ -6,6 +6,7 @@ import {
   deleteTaskRequest,
   getTaskRequest,
   getTasksRequest,
+  updateTaskRequest,
 } from "../interceptors/task";
 import { type CreateTaskRequest } from "../interceptors/task";
 
@@ -13,9 +14,9 @@ type TaskContextType = {
   tasks: Task[];
   error: string[];
   createTask: (data: CreateTaskRequest) => void;
-  updateTask: () => void;
+  updateTask: (id: Id, task: Task) => void;
   deleteTask: (task: Task) => void;
-  getTask: (task: Task) => void;
+  getTask: (id: Id) => Promise<Task>;
 };
 
 export type Task = {
@@ -25,7 +26,14 @@ export type Task = {
   dueDate: string;
 };
 
+export type updateTask = {
+  title: string;
+  description: string;
+};
+
 export type TaskId = Pick<Task, "_id">;
+
+export type Id = string;
 
 export const TaskContext = createContext<TaskContextType | undefined>(
   undefined
@@ -82,16 +90,23 @@ export function TaskProvider({ children }: { children: React.ReactNode }) {
     }
   };
 
-  const getTask = async (task: Task) => {
+  const getTask = async (id: Id) => {
     try {
-      const res = await getTaskRequest(task);
-      setTasks((prevState) => [...prevState, res.data]);
+      const res = await getTaskRequest(id);
+      return res.data;
     } catch (err: any) {
       setError(err.response.data);
     }
   };
 
-  const updateTask = async () => {};
+  const updateTask = async (id: Id, task: updateTask) => {
+    try {
+      await updateTaskRequest(id, task);
+    } catch (err: any) {
+      console.log(err);
+      setError(err.response.data);
+    }
+  };
 
   return (
     <TaskContext.Provider
