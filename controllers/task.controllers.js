@@ -84,9 +84,7 @@ export const updateTask = async (req, res) => {
     const { title, description, dueDate } = req.body;
 
     const updateTask = await Task.findByIdAndUpdate(
-      {
-        id,
-      },
+      id,
       {
         title,
         description,
@@ -98,7 +96,8 @@ export const updateTask = async (req, res) => {
     );
     res.status(200).json(updateTask);
   } catch (err) {
-    res.status(500).json({ message: "Error updating task" });
+    console.log(err);
+    res.status(500).json({ message: "Error updating task", err });
   }
 };
 
