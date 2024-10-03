@@ -5,11 +5,14 @@ import {
   createEvent,
   updateEvent,
   deleteEvent,
+  getEvent,
 } from "../controllers/event.controllers.js";
 
 const routes = Router();
 
 routes.get("/", getAllEvents);
+
+routes.get("/:id", getEvent);
 
 routes.post("/", createEvent);
 

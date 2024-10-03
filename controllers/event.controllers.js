@@ -3,6 +3,22 @@ import jwt from "jsonwebtoken";
 import User from "../models/user.model.js";
 import Event from "../models/event.model.js";
 
+export const getEvent = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const event = await Event.findById(id);
+
+    if (!event) {
+      return res.status(404).json({ message: "Event not found" });
+    }
+
+    res.status(200).json(event);
+  } catch (err) {
+    res.status(500).json({ message: "Error getting event" });
+  }
+};
+
 export const getAllEvents = async (req, res) => {
   const token = req.cookies.token;
 
