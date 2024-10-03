@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import { useCompany } from "../../context/company";
 import { X } from "@/app/icons/x";
+import { FileInput } from "../upload/FileInput";
 
 type FormValues = {
   name: string;
@@ -30,21 +31,17 @@ export function FormModal({ setOpen }: State) {
   };
 
   return (
-    <div className="z-40 w-full h-[875px] bg-zinc-700/40 relative rounded-xl px-8 py-4">
+    <div className="z-40 w-full h-[875px] relative rounded-xl border border-zinc-200 px-8 py-4">
       <form onSubmit={onSubmit} className="flex flex-col gap-6">
         <button
           onClick={handleClose}
-          className="absolute top-4 right-4 cursor-pointer"
+          className="absolute top-4 right-4 cursor-pointer hover:bg-zinc-100 px-1 py-1 rounded-[4px]"
         >
           <X />
         </button>
-        <h3 className="font-semibold text-xl text-blue-600">Add company</h3>
+        <h3 className="font-semibold text-xl">Add company</h3>
 
-        <input
-          type="file"
-          className="rounded-xl bg-white w-[250px] h-[200px]"
-          {...register("logo")}
-        />
+        <FileInput />
 
         {errors.logo && (
           <span className="text-red-500 text-base font-semibold">
@@ -53,12 +50,12 @@ export function FormModal({ setOpen }: State) {
         )}
 
         <div className="flex flex-col gap-1">
-          <label className="text-blue-600" htmlFor="name">
+          <label className="text-black" htmlFor="name">
             Name
           </label>
           <div className="flex items-center gap-4">
             <input
-              className="w-[30%] bg-white rounded-xl px-2 py-1 border border-zinc-400 text-black"
+              className="w-[20%] rounded-[4px] px-2 py-1 border border-zinc-200 text-black"
               type="text"
               id="name"
               {...register("name", {
@@ -74,12 +71,12 @@ export function FormModal({ setOpen }: State) {
         </div>
 
         <div className="flex flex-col gap-1">
-          <label className="text-blue-600" htmlFor="revenue">
+          <label className="text-black" htmlFor="revenue">
             Total Revenue
           </label>
           <div className="flex items-center gap-4">
             <input
-              className="w-[30%] bg-white rounded-xl px-2 py-1 border border-zinc-400 text-black"
+              className="w-[20%] rounded-[4px] px-2 py-1 border border-zinc-200 text-black"
               type="text"
               id="revenue"
               defaultValue="$"
@@ -96,12 +93,12 @@ export function FormModal({ setOpen }: State) {
         </div>
 
         <div className="flex flex-col gap-1">
-          <label className="text-blue-600" htmlFor="company">
+          <label className="text-black" htmlFor="company">
             Company size
           </label>
           <div className="flex items-center gap-4">
             <select
-              className="w-[30%] bg-white rounded-xl px-2 py-1 border border-zinc-400 text-black"
+              className="w-[20%] rounded-[4px] px-2 py-1 border border-zinc-200 text-black"
               id="company"
               {...register("size", {
                 required: "Company size is required",
@@ -121,12 +118,12 @@ export function FormModal({ setOpen }: State) {
         </div>
 
         <div className="flex flex-col gap-1">
-          <label className="text-blue-600" htmlFor="type">
+          <label className="text-black" htmlFor="type">
             Type
           </label>
           <div className="flex items-center gap-4">
             <select
-              className="w-[30%] bg-white rounded-xl px-2 py-1 border border-zinc-400 text-black"
+              className="w-[20%] rounded-[4px] px-2 py-1 border border-zinc-200 text-black"
               id="type"
               {...register("type", {
                 required: "Type is required",
@@ -146,12 +143,12 @@ export function FormModal({ setOpen }: State) {
         </div>
 
         <div className="flex flex-col gap-1">
-          <label className="text-blue-600" htmlFor="country">
+          <label className="text-black" htmlFor="country">
             Country
           </label>
           <div className="flex items-center gap-4">
             <select
-              className="w-[30%] bg-white rounded-xl px-2 py-1 border border-zinc-400 text-black"
+              className="w-[20%] rounded-[4px] px-2 py-1 border border-zinc-200 text-black"
               id="country"
               {...register("country", {
                 required: "Country is required",
@@ -173,7 +170,7 @@ export function FormModal({ setOpen }: State) {
 
         <button
           type="submit"
-          className="bg-blue-600 w-[15%] px-4 py-3 rounded-xl text-white font-semibold mt-6"
+          className="bg-blue-600 w-[20%] px-4 py-3 hover:rounded-xl text-white font-semibold mt-6 duration-200"
         >
           Create
         </button>

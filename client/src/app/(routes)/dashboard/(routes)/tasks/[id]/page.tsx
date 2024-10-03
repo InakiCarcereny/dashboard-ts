@@ -4,15 +4,12 @@ import { useTask } from "@/app/context/task";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
+import { type Task } from "@/app/context/task";
 
 export default function Task({ params }: { params: any }) {
   const { getTask, updateTask } = useTask();
-  const { register, handleSubmit, formState, setValue } = useForm<{
-    title: string;
-    description: string;
-    dueDate: string;
-    _id: string;
-  }>();
+  const { register, handleSubmit, formState, setValue } = useForm<Task>();
+
   const router = useRouter();
 
   const { errors } = formState;
@@ -23,7 +20,6 @@ export default function Task({ params }: { params: any }) {
     async function loadTask() {
       if (ID) {
         const task = await getTask(ID);
-        console.log(task);
         setValue("title", task.title);
         setValue("description", task.description);
       }
