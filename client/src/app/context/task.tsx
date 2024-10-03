@@ -58,6 +58,7 @@ export function TaskProvider({ children }: { children: React.ReactNode }) {
       try {
         const res = await getTasksRequest();
         setTasks(res.data);
+        // console.log(res.data);
       } catch (err: any) {
         setError(err.response.data);
       }
@@ -102,6 +103,7 @@ export function TaskProvider({ children }: { children: React.ReactNode }) {
   const updateTask = async (id: Id, task: updateTask) => {
     try {
       await updateTaskRequest(id, task);
+      setTasks((prevState) => prevState.map((t) => (t._id === id ? task : t)));
     } catch (err: any) {
       console.log(err);
       setError(err.response.data);
