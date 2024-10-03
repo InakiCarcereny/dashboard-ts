@@ -11,6 +11,7 @@ import { Trash } from "@/app/icons/trash";
 import { useEvents } from "../../context/events";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
+import Link from "next/link";
 
 export function EventTable({ query }: { query: string }) {
   const { events, deleteEvent } = useEvents();
@@ -67,7 +68,9 @@ export function EventTable({ query }: { query: string }) {
               <TableCell>{event.hourEnd}</TableCell>
               <TableCell className="flex items-center gap-2">
                 <button className="px-2 py-2 rounded-full cursor-pointer">
-                  <Ballpen />
+                  <Link href={`/dashboard/events/${event._id}`}>
+                    <Ballpen />
+                  </Link>
                 </button>
                 <button
                   onClick={() => {

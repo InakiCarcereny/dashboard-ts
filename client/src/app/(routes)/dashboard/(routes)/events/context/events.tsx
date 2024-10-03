@@ -1,9 +1,12 @@
 "use client";
 
+import { Id } from "@/app/context/task";
 import {
   createEventRequest,
   deleteEventRequest,
   getAllEventsRequest,
+  getEventRequest,
+  updateEventRequest,
 } from "@/app/interceptors/event";
 import { createContext, useContext, useEffect, useState } from "react";
 
@@ -11,8 +14,9 @@ type EventsContextType = {
   events: Event[];
   error: string[];
   createEvent: (data: CreateEventRequest) => void;
-  updateEvent: (data: UpdateEventRequest) => void;
-  deleteEvent: (event: DeleteEventRequest) => void;
+  deleteEvent: (data: DeleteEventRequest) => void;
+  getEvent: (id: Id) => Promise<Event>;
+  updateEvent: (id: Id, event: UpdateEventRequest) => void;
 };
 
 export type Event = {
@@ -83,7 +87,25 @@ export function EventsProvider({ children }: { children: React.ReactNode }) {
     }
   };
 
-  const updateEvent = async (data: UpdateEventRequest) => {};
+  const getEvent = async (id: Id) => {
+    try {
+      const res = await getEventRequest(id);
+      return res.data;
+    } catch (err: any) {
+      setError(err.response.data);
+    }
+  };
+
+  const updateEvent = async (id: Id, data: UpdateEventRequest) => {
+    try {
+      await updateEventRequest(id, data);
+      setEvents((prevState) =>
+        prevState.map((event) => (event._id === id ? data : event))
+      );
+    } catch (err: any) {
+      setError(err.response.data);
+    }
+  };
 
   return (
     <EventsContext.Provider
@@ -93,6 +115,7 @@ export function EventsProvider({ children }: { children: React.ReactNode }) {
         createEvent,
         updateEvent,
         deleteEvent,
+        getEvent,
       }}
     >
       {children}
