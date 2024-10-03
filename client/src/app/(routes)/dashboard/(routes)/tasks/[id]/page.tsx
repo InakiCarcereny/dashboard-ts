@@ -40,14 +40,16 @@ export default function Task({ params }: { params: any }) {
   return (
     <form
       onSubmit={onSubmit}
-      className=" bg-zinc-300 rounded-xl px-4 py-2 w-[300px] h-[350px] flex flex-col gap-4"
+      className="rounded-xl px-4 py-4 w-[300px] min-h-auto flex flex-col gap-4 border border-zinc-200"
     >
-      <div className="flex flex-col gap-2">
-        <label htmlFor="title" className="text-black font-semibold text-base">
+      <h3 className="text-3xl font-semibold">Edit task</h3>
+
+      <div className="flex flex-col gap-2 mt-4">
+        <label htmlFor="title" className="text-black text-base">
           Title
         </label>
         <input
-          className="bg-white focus:outline-none rounded-xl px-2 py-2 w-full text-sm"
+          className="focus:outline-none rounded-[4px] px-2 py-2 w-full text-sm border border-zinc-200"
           type="text"
           id="title"
           {...register("title", {
@@ -63,14 +65,11 @@ export default function Task({ params }: { params: any }) {
       </div>
 
       <div className="flex flex-col gap-2">
-        <label
-          htmlFor="description"
-          className="text-black font-semibold text-base"
-        >
+        <label htmlFor="description" className="text-black text-base">
           Description
         </label>
         <textarea
-          className="bg-white resize-none rounded-xl px-2 py-2 focus:outline-none text-sm w-full"
+          className="resize-none rounded-[4px] px-2 py-2 focus:outline-none text-sm w-full border border-zinc-200"
           id="description"
           rows={5}
           {...register("description", {

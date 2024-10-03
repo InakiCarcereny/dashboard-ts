@@ -58,20 +58,26 @@ export default function Home() {
         <div className="container mx-auto text-center">
           <h2 className="text-3xl font-bold mb-10">Features</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 flex flex-col items-center">
+            <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 flex flex-col items-center gap-4">
               <File />
-              <h3 className="text-xl font-semibold mb-2">Task Management</h3>
-              <p>Organize your tasks, set deadlines, and stay productive.</p>
+              <div className="flex flex-col items-center">
+                <h3 className="text-xl font-semibold mb-2">Task Management</h3>
+                <p>Organize your tasks, set deadlines, and stay productive.</p>
+              </div>
             </div>
-            <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 flex flex-col items-center">
+            <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 flex flex-col items-center gap-4">
               <Calendar />
-              <h3 className="text-xl font-semibold mb-2">Calendar</h3>
-              <p>Keep track of your important dates and deadlines.</p>
+              <div>
+                <h3 className="text-xl font-semibold mb-2">Calendar</h3>
+                <p>Keep track of your important dates and deadlines.</p>
+              </div>
             </div>
-            <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 flex flex-col items-center">
+            <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 flex flex-col items-center gap-4">
               <Phone />
-              <h3 className="text-xl font-semibold mb-2">Contacts</h3>
-              <p>Manage your contacts and stay connected with ease.</p>
+              <div>
+                <h3 className="text-xl font-semibold mb-2">Contacts</h3>
+                <p>Manage your contacts and stay connected with ease.</p>
+              </div>
             </div>
           </div>
         </div>
@@ -107,12 +113,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      <footer className="bg-gray-800 text-white py-6">
-        <div className="container mx-auto text-center">
-          <p>&copy; 2024 DashboardApp. All rights reserved.</p>
-        </div>
-      </footer>
     </>
   );
 }
