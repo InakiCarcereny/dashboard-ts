@@ -3,13 +3,17 @@
 import { useTask } from "@/app/context/task";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { useRouter } from "next/navigation";
 
 export default function Task({ params }: { params: any }) {
   const { getTask, updateTask } = useTask();
   const { register, handleSubmit, formState, setValue } = useForm<{
     title: string;
     description: string;
+    dueDate: string;
+    _id: string;
   }>();
+  const router = useRouter();
 
   const { errors } = formState;
 
@@ -30,13 +34,13 @@ export default function Task({ params }: { params: any }) {
 
   const onSubmit = handleSubmit(async (data) => {
     updateTask(ID, data);
-    console.log(data);
+    router.push("/dashboard/tasks");
   });
 
   return (
     <form
       onSubmit={onSubmit}
-      className=" bg-zinc-300 rounded-lg px-4 py-2 w-[300px] h-[350px] flex flex-col gap-4"
+      className=" bg-zinc-300 rounded-xl px-4 py-2 w-[300px] h-[350px] flex flex-col gap-4"
     >
       <div className="flex flex-col gap-2">
         <label htmlFor="title" className="text-black font-semibold text-base">
