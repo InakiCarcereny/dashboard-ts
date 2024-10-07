@@ -43,10 +43,10 @@ export const createCompany = async (req, res) => {
 
     const userFind = await User.findById(id);
 
-    if (!req.file || req.file.mimetype !== "image/png") {
+    if (!req.file || !["image/png", "image/jpeg"].includes(req.file.mimetype)) {
       return res
         .status(400)
-        .json({ message: "Por favor, sube un archivo PNG válido" });
+        .json(["Por favor, sube un archivo PNG o JPG válido"]);
     }
 
     const { name, revenue, size, type, country } = req.body;
