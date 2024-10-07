@@ -7,7 +7,8 @@ const companySchema = new mongoose.Schema(
       required: true,
     },
     logo: {
-      type: Buffer,
+      data: Buffer,
+      contentType: String,
     },
     revenue: {
       type: String,

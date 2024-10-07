@@ -50,11 +50,13 @@ export const createCompany = async (req, res) => {
     }
 
     const { name, revenue, size, type, country } = req.body;
-    const logoBuffer = req.file.buffer;
 
     const company = new Company({
       name,
-      logo: logoBuffer,
+      logo: {
+        data: req.file.buffer,
+        contentType: req.file.mimetype,
+      },
       revenue,
       size,
       type,
