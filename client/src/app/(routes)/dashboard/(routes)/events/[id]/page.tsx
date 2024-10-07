@@ -46,10 +46,10 @@ export default function Event({ params }: { params: any }) {
       onSubmit={onSubmit}
       className="rounded-xl px-4 py-4 w-[300px] min-h-auto flex flex-col gap-4 border border-zinc-200"
     >
-      <h3 className="text-3xl font-semibold">Edit event</h3>
+      <h3 className="text-3xl font-semibold dark:text-white">Edit event</h3>
 
       <div className="flex flex-col gap-2">
-        <label htmlFor="title" className="text-black text-base">
+        <label htmlFor="title" className="text-black text-base dark:text-white">
           Title
         </label>
         <input
@@ -64,7 +64,10 @@ export default function Event({ params }: { params: any }) {
 
       <div className="grid grid-cols-2 mt-4 gap-4">
         <div className="flex flex-col gap-2">
-          <label htmlFor="dateInit" className="text-black text-base">
+          <label
+            htmlFor="dateInit"
+            className="text-black text-base dark:text-white"
+          >
             Date init
           </label>
           <input
@@ -78,7 +81,10 @@ export default function Event({ params }: { params: any }) {
         </div>
 
         <div className="flex flex-col gap-2">
-          <label htmlFor="hourInit" className="text-black text-base">
+          <label
+            htmlFor="hourInit"
+            className="text-black text-base dark:text-white"
+          >
             Hour init
           </label>
           <input
@@ -92,7 +98,10 @@ export default function Event({ params }: { params: any }) {
         </div>
 
         <div className="flex flex-col gap-2">
-          <label htmlFor="dateEnd" className="text-black text-base">
+          <label
+            htmlFor="dateEnd"
+            className="text-black text-base dark:text-white"
+          >
             Date end
           </label>
           <input
@@ -106,7 +115,10 @@ export default function Event({ params }: { params: any }) {
         </div>
 
         <div className="flex flex-col gap-2">
-          <label htmlFor="hourEnd" className="text-black text-base">
+          <label
+            htmlFor="hourEnd"
+            className="text-black text-base dark:text-white"
+          >
             Hour end
           </label>
           <input

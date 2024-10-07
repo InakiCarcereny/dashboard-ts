@@ -39,7 +39,7 @@ export function FormModal({ setOpen }: State) {
               Title
             </label>
             <input
-              className="focus:outline-none rounded-[4px] px-2 py-2 w-full text-sm border border-zinc-200"
+              className="focus:outline-none rounded-[4px] px-2 py-2 w-full text-sm border border-zinc-200 dark:bg-white dark:text-black"
               type="text"
               id="title"
               {...register("title", {
@@ -59,7 +59,7 @@ export function FormModal({ setOpen }: State) {
               Date init
             </label>
             <input
-              className=" focus:outline-none rounded-[4px] px-2 py-2 w-full text-sm border border-zinc-200"
+              className=" focus:outline-none rounded-[4px] px-2 py-2 w-full text-sm border border-zinc-200 dark:bg-white dark:text-black"
               type="text"
               id="date init"
               {...register("dateInit", {
@@ -79,7 +79,7 @@ export function FormModal({ setOpen }: State) {
               Hour init
             </label>
             <input
-              className=" focus:outline-none rounded-[4px] px-2 py-2 w-full text-sm border border-zinc-200"
+              className=" focus:outline-none rounded-[4px] px-2 py-2 w-full text-sm border border-zinc-200 dark:bg-white dark:text-black"
               type="text"
               id="hour init"
               {...register("hourInit", {
@@ -99,7 +99,7 @@ export function FormModal({ setOpen }: State) {
               Date end
             </label>
             <input
-              className=" focus:outline-none rounded-[4px] px-2 py-2 w-full text-sm border border-zinc-200"
+              className=" focus:outline-none rounded-[4px] px-2 py-2 w-full text-sm border border-zinc-200 dark:bg-white dark:text-black"
               type="text"
               id="date end"
               {...register("dateEnd", {
@@ -119,7 +119,7 @@ export function FormModal({ setOpen }: State) {
               Hour end
             </label>
             <input
-              className=" focus:outline-none rounded-[4px] px-2 py-2 w-full text-sm border border-zinc-200"
+              className=" focus:outline-none rounded-[4px] px-2 py-2 w-full text-sm border border-zinc-200 dark:bg-white dark:text-black"
               type="text"
               id="hour end"
               {...register("hourEnd", {
