@@ -29,22 +29,17 @@ export function FormModal({ setOpen }: State) {
   });
 
   return (
-    <div className="absolute top-[15%] left-[250px] z-50 bg-blue-600 rounded-xl h-[520px] w-[300px]">
-      <img
-        className="w-full h-full relative rounded-xl"
-        src="https://i.pinimg.com/564x/40/18/ec/4018ecb6535086616b3f922a18de0acc.jpg"
-        alt="background image"
-      />
+    <div className="absolute top-[15%] left-[250px] z-50 bg-white rounded-[4px] border border-zinc-200 min-h-[400px] w-[300px]">
       <form
         onSubmit={onSubmit}
-        className="flex flex-col gap-8 px-4 top-4 py-4 h-full absolute w-full"
+        className="flex flex-col gap-8 px-4 py-4 w-full"
       >
         <div className="flex flex-col gap-4">
-          <label className="text-black font-semibold text-base" htmlFor="title">
+          <label className="text-black text-base" htmlFor="title">
             Title
           </label>
           <input
-            className="bg-zinc-700/40 rounded-xl px-2 py-2 focus:outline-none text-sm text-white w-full"
+            className="rounded-[4px] px-2 py-2 focus:outline-none text-sm w-full border border-zinc-200"
             type="text"
             id="title"
             {...register("title", {
@@ -77,7 +72,7 @@ export function FormModal({ setOpen }: State) {
             Description
           </label>
           <textarea
-            className="bg-zinc-700/40 resize-none rounded-xl px-2 py-2 focus:outline-none text-sm text-white w-full"
+            className="resize-none rounded-[4px] px-2 py-2 focus:outline-none text-sm w-full border border-zinc-200"
             id="description"
             rows={5}
             {...register("description", {
@@ -102,7 +97,7 @@ export function FormModal({ setOpen }: State) {
           )}
         </div>
         <button className="bg-blue-600 px-4 py-2 hover:rounded-xl duration-200 text-white font-semibold mt-20">
-          Create Task
+          Create
         </button>
       </form>
     </div>

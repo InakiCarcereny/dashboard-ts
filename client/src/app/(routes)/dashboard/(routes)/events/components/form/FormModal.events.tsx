@@ -28,24 +28,18 @@ export function FormModal({ setOpen }: State) {
   });
 
   return (
-    <div className="absolute right-4 top-40 bg-white rounded-xl h-[670px] w-[300px] z-40">
-      <img
-        src="https://i.pinimg.com/736x/ca/36/ee/ca36ee6ecf59561b7b2d72674791bfed.jpg"
-        className="w-full h-full relative rounded-xl"
-        alt="background image"
-      />
-
+    <div className="absolute right-4 top-40 bg-white rounded-[4px] min-h-[500px] w-[300px] z-40 border border-zinc-200">
       <form
         onSubmit={onSubmit}
-        className="flex flex-col justify-between absolute top-4 px-4 py-2 gap-12 w-full"
+        className="flex flex-col px-4 py-4 justify-between gap-4 w-full"
       >
         <div className="flex flex-col gap-4">
           <div className="flex flex-col gap-2">
-            <label className="font-semibold text-black" htmlFor="title">
+            <label className="text-black" htmlFor="title">
               Title
             </label>
             <input
-              className="bg-zinc-700/40 focus:outline-none text-white rounded-xl px-2 py-2 w-full text-sm"
+              className="focus:outline-none rounded-[4px] px-2 py-2 w-full text-sm border border-zinc-200"
               type="text"
               id="title"
               {...register("title", {
@@ -61,11 +55,11 @@ export function FormModal({ setOpen }: State) {
           </div>
 
           <div className="flex flex-col gap-2">
-            <label className="font-semibold text-black" htmlFor="title">
+            <label className=" text-black" htmlFor="title">
               Date init
             </label>
             <input
-              className="bg-zinc-700/40 focus:outline-none text-white rounded-xl px-2 py-2 w-full text-sm"
+              className=" focus:outline-none rounded-[4px] px-2 py-2 w-full text-sm border border-zinc-200"
               type="text"
               id="date init"
               {...register("dateInit", {
@@ -81,11 +75,11 @@ export function FormModal({ setOpen }: State) {
           </div>
 
           <div className="flex flex-col gap-2">
-            <label className="font-semibold text-black" htmlFor="title">
+            <label className="text-black" htmlFor="title">
               Hour init
             </label>
             <input
-              className="bg-zinc-700/40 focus:outline-none text-white rounded-xl px-2 py-2 w-full text-sm"
+              className=" focus:outline-none rounded-[4px] px-2 py-2 w-full text-sm border border-zinc-200"
               type="text"
               id="hour init"
               {...register("hourInit", {
@@ -101,11 +95,11 @@ export function FormModal({ setOpen }: State) {
           </div>
 
           <div className="flex flex-col gap-2">
-            <label className="font-semibold text-black" htmlFor="title">
+            <label className="text-black" htmlFor="title">
               Date end
             </label>
             <input
-              className="bg-zinc-700/40 focus:outline-none text-white rounded-xl px-2 py-2 w-full text-sm"
+              className=" focus:outline-none rounded-[4px] px-2 py-2 w-full text-sm border border-zinc-200"
               type="text"
               id="date end"
               {...register("dateEnd", {
@@ -121,11 +115,11 @@ export function FormModal({ setOpen }: State) {
           </div>
 
           <div className="flex flex-col gap-2">
-            <label className="font-semibold text-black" htmlFor="title">
+            <label className="text-black" htmlFor="title">
               Hour end
             </label>
             <input
-              className="bg-zinc-700/40 focus:outline-none text-white rounded-xl px-2 py-2 w-full text-sm"
+              className=" focus:outline-none rounded-[4px] px-2 py-2 w-full text-sm border border-zinc-200"
               type="text"
               id="hour end"
               {...register("hourEnd", {
