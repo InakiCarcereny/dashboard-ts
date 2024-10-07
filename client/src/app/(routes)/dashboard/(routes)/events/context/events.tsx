@@ -10,16 +10,16 @@ import {
 } from "@/app/interceptors/event";
 import { createContext, useContext, useEffect, useState } from "react";
 
-type EventsContextType = {
+interface EventsContextType {
   events: Event[];
   error: string[];
   createEvent: (data: CreateEventRequest) => void;
   deleteEvent: (data: DeleteEventRequest) => void;
   getEvent: (id: Id) => Promise<Event>;
   updateEvent: (id: Id, event: UpdateEventRequest) => void;
-};
+}
 
-export type Event = {
+export interface Event {
   _id?: string;
   dateInit: string;
   hourInit: string;
@@ -28,10 +28,12 @@ export type Event = {
   title: string;
   createdAt?: string;
   updatedAt?: string;
-};
+}
 
 export type CreateEventRequest = Omit<Event, "createdAt" | "updatedAt" | "_id">;
+
 export type UpdateEventRequest = Omit<Event, "createdAt" | "updatedAt">;
+
 export type DeleteEventRequest = Omit<Event, "createdAt" | "updatedAt">;
 
 export const EventsContext = createContext<EventsContextType | undefined>(
