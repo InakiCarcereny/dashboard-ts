@@ -18,7 +18,7 @@ type CompanyContextType = {
 export type Company = {
   _id?: string;
   name: string;
-  logo: string;
+  logo: any;
   revenue: string;
   size: string;
   type: string;
@@ -51,6 +51,7 @@ export function CompanyProvider({ children }: { children: React.ReactNode }) {
         const res = await getCompaniesRequest();
         setCompanies(res.data);
       } catch (err: any) {
+        console.log(err);
         setError(err.response.data);
       }
     }

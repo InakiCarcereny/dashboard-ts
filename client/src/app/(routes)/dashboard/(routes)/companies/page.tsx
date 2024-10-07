@@ -7,7 +7,7 @@ import { FormModal } from "./components/form/FormModal.companies";
 import { Company } from "./components/company/Company";
 import { Header } from "./components/header/Header.companies";
 
-export default function Companies() {
+export default function Companies({ query }: { query: string }) {
   const [open, setOpen] = useState(false);
 
   const { companies } = useCompany();
@@ -16,25 +16,39 @@ export default function Companies() {
     setOpen(!open);
   };
 
+  const filteredCompanies = companies.filter((company) =>
+    company.name.toLocaleLowerCase().includes(query)
+  );
+
   return (
     <section className="flex flex-col gap-4 w-full h-full">
       <Header open={open} handleOpen={handleOpen} />
 
-      <div>
+      <ul>
         {companies.map((company: CompanyType) => {
-          return (
-            <Company
-              key={company._id}
-              name={company.name}
-              logo={company.logo}
-              revenue={company.revenue}
-              size={company.size}
-              type={company.type}
-              country={company.country}
-            />
-          );
+          if (
+            company.logo &&
+            company.logo.data &&
+            Array.isArray(company.logo.data.data)
+          ) {
+            const logoUrl = `data:${
+              company.logo.contentType
+            };base64,${Buffer.from(company.logo.data.data).toString("base64")}`;
+
+            return (
+              <Company
+                key={company._id}
+                name={company.name}
+                logo={logoUrl}
+                revenue={company.revenue}
+                size={company.size}
+                type={company.type}
+                country={company.country}
+              />
+            );
+          }
         })}
-      </div>
+      </ul>
 
       {open && <FormModal setOpen={setOpen} />}
     </section>

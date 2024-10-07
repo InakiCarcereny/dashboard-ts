@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { useCompany } from "../../context/company";
 import { X } from "@/app/icons/x";
-import { FileInput } from "../upload/FileInput";
+import { useState } from "react";
 
 type FormValues = {
   name: string;
@@ -23,7 +23,14 @@ export function FormModal({ setOpen }: State) {
   const { errors } = formState;
 
   const onSubmit = handleSubmit(async (data) => {
-    createCompany(data);
+    const formData = new FormData();
+    formData.append("logo", data.logo[0]);
+    formData.append("name", data.name);
+    formData.append("revenue", data.revenue);
+    formData.append("size", data.size);
+    formData.append("type", data.type);
+    formData.append("country", data.country);
+    createCompany(formData);
   });
 
   const handleClose = () => {
@@ -31,7 +38,7 @@ export function FormModal({ setOpen }: State) {
   };
 
   return (
-    <div className="z-40 w-full h-[875px] relative rounded-xl border border-zinc-200 px-8 py-4">
+    <div className="z-40 w-[1610px] h-[890px] absolute rounded-[4px] border bg-white border-zinc-200 px-8 py-4">
       <form onSubmit={onSubmit} className="flex flex-col gap-6">
         <button
           onClick={handleClose}
@@ -41,7 +48,16 @@ export function FormModal({ setOpen }: State) {
         </button>
         <h3 className="font-semibold text-xl">Add company</h3>
 
-        <FileInput />
+        <div>
+          <input
+            type="file"
+            accept="image/*"
+            id="logo"
+            {...register("logo", {
+              required: "File is required",
+            })}
+          />
+        </div>
 
         {errors.logo && (
           <span className="text-red-500 text-base font-semibold">
