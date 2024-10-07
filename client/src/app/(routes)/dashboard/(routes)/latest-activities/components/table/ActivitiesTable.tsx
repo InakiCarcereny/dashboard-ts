@@ -18,7 +18,7 @@ export function ActivitiesTable({ query }: { query: string }) {
       <TableHeader>
         <TableRow className="w-full border-none">
           <TableHead className="w-[400px] font-semibold text-blue-600 text-base sm:text-xl">
-            Tittle
+            Name
           </TableHead>
           <TableHead className="w-[400px] font-semibold text-blue-600 text-base sm:text-xl">
             Description

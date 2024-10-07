@@ -39,7 +39,7 @@ export function FormModal({ setOpen }: State) {
             Title
           </label>
           <input
-            className="rounded-[4px] px-2 py-2 focus:outline-none text-sm w-full border border-zinc-200"
+            className="rounded-[4px] px-2 py-2 focus:outline-none text-sm w-full border border-zinc-200 dark:bg-white dark:text-black"
             type="text"
             id="title"
             {...register("title", {
@@ -65,14 +65,11 @@ export function FormModal({ setOpen }: State) {
         </div>
 
         <div className="flex flex-col gap-2">
-          <label
-            className="text-black font-semibold text-base"
-            htmlFor="description"
-          >
+          <label className="text-black text-base" htmlFor="description">
             Description
           </label>
           <textarea
-            className="resize-none rounded-[4px] px-2 py-2 focus:outline-none text-sm w-full border border-zinc-200"
+            className="resize-none rounded-[4px] px-2 py-2 focus:outline-none text-sm w-full border border-zinc-200 dark:bg-white dark:text-black"
             id="description"
             rows={5}
             {...register("description", {

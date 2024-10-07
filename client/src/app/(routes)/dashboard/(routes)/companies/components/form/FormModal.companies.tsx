@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { useCompany } from "../../context/company";
 import { X } from "@/app/icons/x";
-import { useState } from "react";
+import { toast } from "sonner";
 
 type FormValues = {
   name: string;
@@ -31,6 +31,8 @@ export function FormModal({ setOpen }: State) {
     formData.append("type", data.type);
     formData.append("country", data.country);
     createCompany(formData);
+    setOpen(false);
+    toast.success("Company created successfully");
   });
 
   const handleClose = () => {
@@ -46,7 +48,7 @@ export function FormModal({ setOpen }: State) {
         >
           <X />
         </button>
-        <h3 className="font-semibold text-xl">Add company</h3>
+        <h3 className="font-semibold text-xl dark:text-black">Add company</h3>
 
         <div>
           <input
@@ -71,7 +73,7 @@ export function FormModal({ setOpen }: State) {
           </label>
           <div className="flex items-center gap-4">
             <input
-              className="w-[20%] rounded-[4px] px-2 py-1 border border-zinc-200 text-black"
+              className="w-[20%] rounded-[4px] px-2 py-1 border dark:bg-white border-zinc-200 text-black"
               type="text"
               id="name"
               {...register("name", {
@@ -92,7 +94,7 @@ export function FormModal({ setOpen }: State) {
           </label>
           <div className="flex items-center gap-4">
             <input
-              className="w-[20%] rounded-[4px] px-2 py-1 border border-zinc-200 text-black"
+              className="w-[20%] rounded-[4px] px-2 py-1 border dark:bg-white border-zinc-200 text-black"
               type="text"
               id="revenue"
               defaultValue="$"
@@ -114,7 +116,7 @@ export function FormModal({ setOpen }: State) {
           </label>
           <div className="flex items-center gap-4">
             <select
-              className="w-[20%] rounded-[4px] px-2 py-1 border border-zinc-200 text-black"
+              className="w-[20%] rounded-[4px] px-2 py-1 border dark:bg-white border-zinc-200 text-black"
               id="company"
               {...register("size", {
                 required: "Company size is required",
@@ -139,7 +141,7 @@ export function FormModal({ setOpen }: State) {
           </label>
           <div className="flex items-center gap-4">
             <select
-              className="w-[20%] rounded-[4px] px-2 py-1 border border-zinc-200 text-black"
+              className="w-[20%] rounded-[4px] px-2 py-1 border dark:bg-white border-zinc-200 text-black"
               id="type"
               {...register("type", {
                 required: "Type is required",
@@ -164,7 +166,7 @@ export function FormModal({ setOpen }: State) {
           </label>
           <div className="flex items-center gap-4">
             <select
-              className="w-[20%] rounded-[4px] px-2 py-1 border border-zinc-200 text-black"
+              className="w-[20%] rounded-[4px] px-2 py-1 border dark:bg-white border-zinc-200 text-black"
               id="country"
               {...register("country", {
                 required: "Country is required",
@@ -175,6 +177,9 @@ export function FormModal({ setOpen }: State) {
               <option value="USA">USA</option>
               <option value="UK">UK</option>
               <option value="Argentina">Argentina</option>
+              <option value="Germany">Germany</option>
+              <option value="France">France</option>
+              <option value="Italy">Italy</option>
             </select>
             {errors.country && (
               <span className="text-red-500 text-base font-semibold">

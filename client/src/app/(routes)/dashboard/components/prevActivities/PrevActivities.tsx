@@ -20,7 +20,7 @@ export function PrevActivities() {
                 key={activity.companyName}
               >
                 <img
-                  className="w-10 h-10 rounded-xl"
+                  className="w-10 h-10"
                   src={activity.logo}
                   alt={activity.companyName}
                 />

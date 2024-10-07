@@ -41,7 +41,7 @@ export default function Task({ params }: { params: any }) {
       <h3 className="text-3xl font-semibold">Edit task</h3>
 
       <div className="flex flex-col gap-2 mt-4">
-        <label htmlFor="title" className="text-black text-base">
+        <label htmlFor="title" className="text-black text-base dark:text-white">
           Title
         </label>
         <input
@@ -61,7 +61,10 @@ export default function Task({ params }: { params: any }) {
       </div>
 
       <div className="flex flex-col gap-2">
-        <label htmlFor="description" className="text-black text-base">
+        <label
+          htmlFor="description"
+          className="text-black text-base dark:text-white "
+        >
           Description
         </label>
         <textarea
