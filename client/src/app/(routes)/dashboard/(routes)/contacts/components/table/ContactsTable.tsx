@@ -39,12 +39,6 @@ export function ContactsTable({
             Email
           </TableHead>
           <TableHead className="w-[400px] font-semibold text-blue-600 text-base sm:text-xl">
-            Number
-          </TableHead>
-          <TableHead className="w-[400px] font-semibold text-blue-600 text-base sm:text-xl">
-            Website
-          </TableHead>
-          <TableHead className="w-[400px] font-semibold text-blue-600 text-base sm:text-xl">
             Company
           </TableHead>
         </TableRow>
@@ -64,8 +58,6 @@ export function ContactsTable({
               {user._firstname} {user._lastname}
             </TableCell>
             <TableCell>{user._email}</TableCell>
-            <TableCell>{user._phone}</TableCell>
-            <TableCell>{user._website}</TableCell>
             <TableCell>{user._company.name}</TableCell>
           </TableRow>
         ))}
