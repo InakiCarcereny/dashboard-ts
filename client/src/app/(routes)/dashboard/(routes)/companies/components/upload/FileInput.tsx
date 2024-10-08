@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import { useForm } from "react-hook-form";
 
 export function FileInput() {
   const [file, setFile] = useState<null | string>(null);
+
+  const { register } = useForm();
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = event?.target?.files?.[0];
@@ -18,6 +21,10 @@ export function FileInput() {
         onChange={handleFileChange}
         className="hidden"
         id="file-input"
+        {...(register("file"),
+        {
+          required: "File is required",
+        })}
       />
       {!file && (
         <label
